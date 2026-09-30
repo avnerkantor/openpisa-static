@@ -1,0 +1,373 @@
+html {
+     background-image: url("../img/bg.jpg");
+}
+ body {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 10px 20px;
+     font-family: 'Open Sans', sans-serif;
+     font-size: 14px;
+     line-height: 1.45;
+     color: #333;
+}
+ * {
+     box-sizing: border-box;
+}
+ a, a:hover {
+     color: #333;
+}
+ hr {
+     border: 0;
+     border-top: 1px solid #c7c7c7;
+     margin: 20px 0;
+}
+/*header*/
+ #myHeader {
+     position: relative;
+     margin-bottom: 25px;
+}
+ .header-image {
+     background-image: url("../img/PISA_TopBG.jpg");
+     background-position: left top;
+     background-size: cover;
+     background-repeat: no-repeat;
+     height: 130px;
+}
+ .text-image {
+     position: absolute;
+     right: 15px;
+     bottom: 5px;
+     color: #fff;
+     font-size: 48pt;
+     line-height: 1.2;
+}
+ .english-link, .english-link:hover {
+     position: absolute;
+     left: 15px;
+     bottom: 15px;
+     color: #fff;
+     font-size: 25pt;
+     text-decoration: none;
+}
+/*layout: text on the right, content on the left*/
+ .row {
+     display: flex;
+     gap: 30px;
+     align-items: flex-start;
+}
+ .columnText {
+     flex: 1 1 0;
+     min-width: 0;
+}
+ .columnMain {
+     flex: 2 1 0;
+     min-width: 0;
+}
+ .columnText p {
+     font-size: medium;
+     text-align: justify;
+     margin: 0 0 10px;
+}
+/*filters*/
+ .filters {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     align-items: center;
+     gap: 12px 40px;
+     padding: 10px 0;
+     margin-bottom: 15px;
+     border-top: 1px solid #c7c7c7;
+     border-bottom: 1px solid #c7c7c7;
+}
+ .filterGroup {
+     text-align: center;
+}
+ #Subject {
+     display: flex;
+     flex-direction: row;
+     align-items: flex-start;
+     gap: 25px;
+     direction: ltr;
+}
+ .filterGroup {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+ #Subject .subjectButtons {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+ .filterGroup:not(#Subject) {
+     position: relative;
+     top: -4px;
+}
+ .filterGroup > small, .subjectButtons > small {
+     line-height: 1.2;
+     margin: 0 0 3px;
+}
+ .subjectButtons > small {
+     margin: 3px 0 0;
+}
+ small {
+     display: block;
+     font-size: 85%;
+}
+ .subjectImage {
+     width: 27px;
+     height: 27px;
+}
+ .btn-circle {
+     width: 50px;
+     height: 50px;
+     padding: 0;
+     border-radius: 50%;
+     border: 1px solid #777777;
+     background-color: #E0E0E0;
+     cursor: pointer;
+}
+ .btn-circle.active, .btn-circle:hover {
+     background-color: #777777;
+     filter: invert(100%);
+}
+ .btn-group {
+     display: inline-flex;
+     direction: ltr;
+}
+ .btnMeasurments {
+     color: #777777;
+     background-color: #E0E0E0;
+     border: 1px solid #777777;
+     font-family: inherit;
+     font-size: 12pt;
+     padding: 6px 12px;
+     margin-left: -1px;
+     cursor: pointer;
+}
+ .btnMeasurments:first-child {
+     border-radius: 4px 0 0 4px;
+     margin-left: 0;
+}
+ .btnMeasurments:last-child {
+     border-radius: 0 4px 4px 0;
+}
+ .btnMeasurments.active, .btnMeasurments:hover {
+     color: #FFFFFF;
+}
+ #Gender [data-value="Male"].active, #Gender [data-value="Male"]:hover {
+     background-color: #5da5da;
+}
+ #Gender [data-value="Female"].active, #Gender [data-value="Female"]:hover {
+     background-color: #f17cb0;
+}
+ #Escs.general [data-value="Low"].active, #Escs.general [data-value="Low"]:hover {
+     background-color: #bc99c7;
+}
+ #Escs.general [data-value="Medium"].active, #Escs.general [data-value="Medium"]:hover {
+     background-color: #b276b2;
+}
+ #Escs.general [data-value="High"].active, #Escs.general [data-value="High"]:hover {
+     background-color: #7b3a96;
+}
+ #Escs.female [data-value="Low"].active, #Escs.female [data-value="Low"]:hover {
+     background-color: #f6aac9;
+}
+ #Escs.female [data-value="Medium"].active, #Escs.female [data-value="Medium"]:hover {
+     background-color: #f17cb0;
+}
+ #Escs.female [data-value="High"].active, #Escs.female [data-value="High"]:hover {
+     background-color: #e5126f;
+}
+ #Escs.male [data-value="Low"].active, #Escs.male [data-value="Low"]:hover {
+     background-color: #88bde6;
+}
+ #Escs.male [data-value="Medium"].active, #Escs.male [data-value="Medium"]:hover {
+     background-color: #5da5da;
+}
+ #Escs.male [data-value="High"].active, #Escs.male [data-value="High"]:hover {
+     background-color: #265dab;
+}
+/*both genders selected: economic status is not used*/
+ #Escs.both .btnMeasurments, #Escs.both .btnMeasurments:hover {
+     color: #b0b0b0;
+     background-color: #E0E0E0;
+     cursor: default;
+}
+/*countries and plots*/
+ .plots {
+     display: flex;
+     flex-direction: row-reverse;
+     gap: 30px;
+}
+ .plotColumn {
+     flex: 1 1 0;
+     min-width: 0;
+}
+ .countrySelect {
+     width: 100%;
+     margin-bottom: 15px;
+     padding: 6px 12px;
+     border: 1px solid #c7c7c7;
+     border-radius: 0;
+     background-color: #fff;
+     font-family: inherit;
+     font-size: 18pt;
+     color: #777777;
+}
+ .plot {
+     height: 300px;
+     background-color: #fff;
+}
+ .hovertext text {
+     font-size: 15px !important;
+}
+/*table*/
+ #analyzeTable {
+     font-size: 13px;
+}
+ #analyzeTable thead input, #analyzeTable thead select {
+     width: 100%;
+     padding: 3px;
+     font-size: 12px;
+     font-family: inherit;
+}
+ #analyzeTable thead select {
+     background-color: #fff;
+}
+ .showVars label {
+     margin-right: 12px;
+     white-space: nowrap;
+}
+ .downloads {
+     margin-top: 25px;
+     display: flex;
+     flex-wrap: wrap;
+     gap: 8px;
+}
+ .btnDownload, .btnDownload:hover {
+     padding: 6px 12px;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     background-color: #fff;
+     text-decoration: none;
+}
+ .btnDownload:hover {
+     background-color: #e6e6e6;
+}
+/*footer: logos, two boxes, one thin line*/
+ .siteFooter {
+     margin-top: 10px;
+     padding-bottom: 20px;
+}
+ .logos {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     align-items: center;
+     gap: 15px 50px;
+     margin-bottom: 25px;
+}
+ .logos img {
+     height: 64px;
+     width: auto;
+}
+ .footerCols {
+     display: flex;
+     gap: 30px;
+     align-items: stretch;
+}
+ .footerBox {
+     flex: 1 1 0;
+     min-width: 0;
+     padding: 14px 20px;
+     background-color: rgba(255, 255, 255, 0.7);
+     border: 1px solid #ddd;
+     border-radius: 4px;
+     font-size: 13px;
+}
+ .footerBox b {
+     display: block;
+     margin-bottom: 6px;
+     font-size: 14px;
+}
+ .footerBox .citation {
+     direction: ltr;
+     text-align: left;
+}
+ .footerLine {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     align-items: center;
+     margin-top: 20px;
+     padding-top: 12px;
+     border-top: 1px solid #c7c7c7;
+     font-size: 13px;
+}
+ .footerLine > * {
+     display: inline-flex;
+     align-items: center;
+}
+ .footerLine > * + *::before {
+     content: "\00b7";
+     margin: 0 12px;
+     color: #999;
+}
+ .footerLine img {
+     height: 24px;
+}
+/*English page (en.html): same layout mirrored, content on the left and text on the right*/
+ body.en .text-image {
+     right: auto;
+     left: 15px;
+     font-size: 48pt;
+}
+ body.en .english-link, body.en .english-link:hover {
+     left: auto;
+     right: 15px;
+     font-size: 15pt;
+}
+ body.en .plots {
+     flex-direction: row;
+}
+ body.en .fullWidth {
+     flex: 1 1 100%;
+}
+ body.en .columnText p {
+     text-align: justify;
+}
+/*narrow screens: one column*/
+ @media (max-width: 800px) {
+     .row {
+         flex-direction: column;
+    }
+     .columnText, .columnMain {
+         flex: none;
+         width: 100%;
+    }
+     .text-image {
+         font-size: 32pt;
+    }
+     .english-link, .english-link:hover {
+         font-size: 16pt;
+    }
+}
+ @media (max-width: 800px) {
+     .footerCols {
+         flex-direction: column;
+         gap: 15px;
+    }
+     .logos img {
+         height: 48px;
+    }
+}
+ @media (max-width: 520px) {
+     .plots {
+         flex-direction: column;
+    }
+     .plotColumn {
+         flex: none;
+    }
+}
