@@ -315,6 +315,12 @@ html {
      margin: 0 12px;
      color: #999;
 }
+ .footerLine .gh::before {
+     content: none;
+}
+ .footerLine .gh {
+     margin-inline-start: 18px;
+}
  .footerLine img {
      height: 24px;
 }
