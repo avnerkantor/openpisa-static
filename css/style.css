@@ -34,6 +34,8 @@ html {
      height: 130px;
 }
  .text-image {
+     margin: 0;
+     font-weight: 400;
      position: absolute;
      right: 15px;
      bottom: 5px;

@@ -1,93 +1,112 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>פיזה פתוח</title>
+  <title>Open PISA | PISA scores by country, 2006-2025</title>
   <link rel="shortcut icon" href="img/bag-512.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="css/style.css">
+<!--seo-->
+<meta name="description" content="Compare PISA math, science and reading scores across countries from 2006 to 2025, by gender and socioeconomic status. Free data to download.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://opisa.org/">
+<link rel="alternate" hreflang="en" href="https://opisa.org/">
+<link rel="alternate" hreflang="he" href="https://opisa.org/he.html">
+<link rel="alternate" hreflang="x-default" href="https://opisa.org/">
+<meta property="og:site_name" content="Open PISA">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="he_IL">
+<meta property="og:title" content="Open PISA | PISA scores by country, 2006-2025">
+<meta property="og:description" content="Compare PISA math, science and reading scores across countries from 2006 to 2025, by gender and socioeconomic status. Free data to download.">
+<meta property="og:url" content="https://opisa.org/">
+<meta property="og:image" content="https://opisa.org/img/PISA_TopBG.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Dataset", "name": "Open PISA", "description": "Compare PISA math, science and reading scores across countries from 2006 to 2025, by gender and socioeconomic status. Free data to download.", "url": "https://opisa.org/", "inLanguage": "en", "isBasedOn": "https://www.oecd.org/pisa/data/", "temporalCoverage": "2006/2025", "keywords": ["PISA", "OECD", "education", "student assessment", "mathematics", "science", "reading"], "creator": [{"@type": "Person", "name": "Avner Kantor"}, {"@type": "Person", "name": "Sheizaf Rafaeli", "sameAs": "https://en.wikipedia.org/wiki/Sheizaf_Rafaeli"}], "distribution": [{"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "https://opisa.org/data/scores_en.csv"}, {"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "https://opisa.org/data/analyze.csv"}, {"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "https://opisa.org/data/pisa_israel_2025.csv"}]}, {"@context": "https://schema.org", "@type": "WebSite", "name": "Open PISA", "url": "https://opisa.org/", "inLanguage": "en"}]</script>
+<!--/seo-->
 </head>
-<body>
+<body class="en">
 
 <header id="myHeader">
   <div class="header-image"></div>
-  <div class="text-image">פיזה פתוח</div>
-  <a class="english-link" href="en.html">English</a>
+  <h1 class="text-image">Open PISA</h1>
+  <a class="english-link" href="he.html">Hebrew</a>
 </header>
 
 <section class="row">
-  <div class="columnText">
-    <p>מערכת החינוך פועלת להקנות מיומנויות חשיבה והבנה לקראת חייהם הבוגרים של התלמידים.</p>
-    <p>מחקר פיזה בוחן הצלחת מערכות חינוך במשימה זו. מדי שלוש שנים עורך ה-OECD (הארגון לשיתוף פעולה ולפיתוח כלכלי) בחינה הכוללת כחצי מיליון תלמידים ברחבי העולם. ההישגים הלימודים מלמדים על מוכנותם להשתלב ולתרום לחברה.</p>
-    <p>מחקר פיזה כולל שאלונים אודות הרקע של התלמידים, הסביבה החינוכית ועמדותיהם ותפיסותיהם לגבי הלימודים. גם מנהלי בתי הספר נשאלים אודות מדיניות בית הספר, האקלים הבית-ספרי, כמות השעות הנלמדת ועוד.</p>
-    <p>תוצאות המחקר משקפות פערים לימודיים הנובעים ממגדר, מצב כלכלי ומקום מגורים. אולם ניתוח הנתונים והשוואה בין מדינות מראה אלו גורמים בסביבה החינוכית יכולים לסייע בצמצום הפערים.</p>
-  </div>
-
   <div class="columnMain">
     <div class="filters">
       <div class="filterGroup" id="Subject">
         <div class="subjectButtons">
           <button type="button" class="btn-circle active" data-value="Math"><img src="img/math.png" class="subjectImage" alt=""></button>
-          <small>מתמטיקה</small>
+          <small>Math</small>
         </div>
         <div class="subjectButtons">
           <button type="button" class="btn-circle" data-value="Science"><img src="img/science.png" class="subjectImage" alt=""></button>
-          <small>מדעים</small>
+          <small>Science</small>
         </div>
         <div class="subjectButtons">
           <button type="button" class="btn-circle" data-value="Reading"><img src="img/reading.png" class="subjectImage" alt=""></button>
-          <small>קריאה</small>
+          <small>Reading</small>
         </div>
       </div>
       <div class="filterGroup">
-        <small>מגדר</small>
+        <small>Gender</small>
         <div class="btn-group" id="Gender">
-          <button type="button" class="btnMeasurments" data-value="Female">בנות</button>
-          <button type="button" class="btnMeasurments" data-value="Male">בנים</button>
+          <button type="button" class="btnMeasurments" data-value="Female">Female</button>
+          <button type="button" class="btnMeasurments" data-value="Male">Male</button>
         </div>
       </div>
       <div class="filterGroup">
-        <small>מצב כלכלי</small>
+        <small>ESCS</small>
         <div class="btn-group general" id="Escs">
-          <button type="button" class="btnMeasurments" data-value="Low">נמוך</button>
-          <button type="button" class="btnMeasurments" data-value="Medium">בינוני</button>
-          <button type="button" class="btnMeasurments" data-value="High">גבוה</button>
+          <button type="button" class="btnMeasurments" data-value="Low">Low</button>
+          <button type="button" class="btnMeasurments" data-value="Medium">Middle</button>
+          <button type="button" class="btnMeasurments" data-value="High">High</button>
         </div>
       </div>
     </div>
 
     <div class="plots">
       <div class="plotColumn">
-        <select id="Country1" class="countrySelect" aria-label="מדינה ראשונה"></select>
+        <select id="Country1" class="countrySelect" aria-label="First country"></select>
         <div id="Country1Plot" class="plot"></div>
       </div>
       <div class="plotColumn">
-        <select id="Country2" class="countrySelect" aria-label="מדינה שנייה"></select>
+        <select id="Country2" class="countrySelect" aria-label="Second country"></select>
         <div id="Country2Plot" class="plot"></div>
       </div>
     </div>
+  </div>
+
+  <div class="columnText">
+    <p><b>The Programme for International Student Assessment</b> is a worldwide survey by the Organization for
+    Economic Co-operation and Development (OECD). Its goal
+    is to evaluate educational systems by testing skills and
+    knowledge of 15-year-old students. It was first carried out in
+    the year 2000 and then repeated every three years. In the
+    2025 cycle, over 760,000 students from 91 countries and
+    economies participated.</p>
+
+    <p><b>Open PISA</b> is a project of The Center for Internet Research
+    and <a href="https://trump.org.il/en/">The Trump Foundation</a>. It aims
+    to enable learning at scale of the dataset using state of the art
+    technologies. Policymakers, teachers, and school principals
+    might use it to make better decisions based on evidence. The
+    dashboard was designed to bridge the gap in knowledge and
+    statistical literacy. It includes panels based on common
+    PISA analysis: students' proficiency and analysis of the
+    relationship between students' and schools' principals' survey and students'
+    performances.</p>
   </div>
 </section>
 
 <hr>
 
 <section class="row">
-  <div class="columnText">
-    <p>בטבלה מוצגים מדדים אשר הוכנו על בסיס השאלונים. במחקר נבדק האם יש להם קשר להישגי התלמידים. קשרים אלו יכולים להסביר את הישגי התלמידים בתחומים שונים. הם יכולים ללמד על מדדים שנראים חשובים אך בפועל אינם קשורים. המחקר מאפשר להשוות וללמוד מניסיונן של מדינות שונות.</p>
-    <p>בטבלה המדד -variable - הוא המשתנה המסביר. תחום האוריינות - subject - הוא המשתנה המוסבר.</p>
-    <p>r squared משמעו עד כמה המשתנה יכול להסביר שונות בהישגי התלמידים. אפס משמעו כי אינו מסביר.</p>
-    <p>p.value משמעו האם הנתונים מובהקים סטטיסטית. נסתפק בערך נמוך מ-0.05.</p>
-    <p>t.value משמעו גודל ההבדל בין הנתונים.</p>
-    <p>n הוא מספר הפריטים בתת המדגם.</p>
-    <p>אפשר להוריד את נתוני ישראל ואת רשימת המשתנים המלאה ולנתח אותם בעצמכם. זכרו כי מציאת קשר אינה מלמדת בהכרח על סיבתיות.</p>
-    <p>הסבר על המתודולוגיה של המבחן נמצא
-      <a target="_blank" href="PISA_2025_Technical_Report.pdf">בדוח הטכני של ראמ"ה לפיזה 2025. <img src="img/pdf.svg" height="15" alt="pdf"></a>
-    </p>
-  </div>
-
-  <div class="columnMain" dir="ltr">
+  <div class="columnMain fullWidth">
     <table id="analyzeTable" class="display compact" style="width:100%"></table>
     <p>***p.value&lt;0.01, **p.value&lt;0.05, * p.value&lt;0.1</p>
     <div id="show_vars" class="showVars"></div>
@@ -103,28 +122,25 @@
 
 <footer class="siteFooter">
   <div class="logos">
-    <a href="http://infosoc.haifa.ac.il/index.php/en/"><img id="IC_logo" src="img/IC_logo.png" alt="המרכז לחקר האינטרנט"></a>
     <a href="http://www.trump.org.il/"><img id="TrumpLogo" src="img/Trump-logo.png" alt="The Trump Foundation"></a>
     <a href="https://www.allcloud.io/"><img id="AllCloudLogo" src="img/AllCloud.png" alt="AllCloud"></a>
   </div>
 
   <div class="footerCols">
     <div class="footerBox">
-      <b>צוות הפרויקט</b>
-      ניהול: <a href="https://he.wikipedia.org/wiki/%D7%A9%D7%99%D7%96%D7%A3_%D7%A8%D7%A4%D7%90%D7%9C%D7%99">פרופ' שיזף רפאלי</a><br>
-      ריכוז: ד"ר עדי ליבסקר<br>
-      מחקר ופיתוח: <a href="https://avnerkantor.com">אבנר קנטור</a>
+      <b>Team</b>
+      Head of project: Prof. <a href="https://en.wikipedia.org/wiki/Sheizaf_Rafaeli">Sheizaf Rafaeli</a><br>
+      Supervisor: Dr. Adi Libsker<br>
+      Research and programming: <a href="https://avnerkantor.com">Avner Kantor</a>
     </div>
     <div class="footerBox">
-      <b>לציטוט אנא הפנו <a href="https://dl.acm.org/doi/abs/10.1145/3386527.3406721" style="color:blue">למאמר</a></b>
+      <b>To cite Open PISA please <a href="https://dl.acm.org/doi/abs/10.1145/3386527.3406721" style="color:blue">refer to:</a></b>
       <div class="citation">Kantor, A., &amp; Rafaeli, S. (2020, August). Open PISA: dashboard for large educational dataset. In <em>Proceedings of the Seventh ACM Conference on Learning@ Scale</em> (pp. 253-256).</div>
     </div>
   </div>
 
   <div class="footerLine">
-    <a href="http://avnerkantor.com/opisaBlog.github.io/">בלוג הפרויקט (2016-2018)</a>
-    <span>פותח בשנים: 2014-2020</span>
-    <a class="gh" href="https://github.com/avnerkantor/opisa2"><img src="img/GitHub-Mark.png" alt="GitHub"></a>
+    <a class="gh" href="https://github.com/avnerkantor/openpisa2"><img src="img/GitHub-Mark.png" alt="GitHub"></a>
   </div>
 </footer>
 

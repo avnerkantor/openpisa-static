@@ -2,7 +2,7 @@
 
 Static version of the Open PISA dashboard (Hebrew and English). Plain HTML, CSS and JavaScript. The data are CSV files.
 
-- `index.html` is the Hebrew page and `en.html` the English page.
+- `index.html` is the English page (opisa.org) and `he.html` the Hebrew page (he.opisa.org forwards to it).
 - The trend charts cover PISA 2006 to 2025 for math, science and reading, by gender and economic status (ESCS).
 - The table shows the link of each index in the student and school questionnaires (PISA 2025) to the scores.
 - `data/` holds the CSV files that the pages read.
@@ -16,7 +16,7 @@ Browsers block reading CSV files from a page opened by double click. Serve the f
 python -m http.server 4518
 ```
 
-Then open http://127.0.0.1:4518/index.html
+Then open http://127.0.0.1:4518/
 
 ## Data
 
