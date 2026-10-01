@@ -66,18 +66,21 @@ function scoresPlot(divId, country) {
   });
 
   var levels = expertiseLevels[state.Subject];
+  var narrow = window.innerWidth <= 520;
   var layout = {
-    margin: {t: 15, r: 20, b: 50, l: 50},
+    margin: narrow ? {t: 10, r: 10, b: 65, l: 40} : {t: 15, r: 20, b: 50, l: 50},
     showlegend: false,
     hovermode: "x",
     font: {family: "Open Sans, sans-serif"},
     xaxis: {
       title: {text: text.xTitle, font: {color: "#777777", size: 13}},
       tickvals: years, range: [2004.5, 2026.5],
+      tickfont: {size: narrow ? 10 : 12}, tickangle: narrow ? -45 : "auto",
       showgrid: false, zeroline: false, linecolor: "#c7c7c7", fixedrange: true
     },
     yaxis: {
       title: {text: text.yTitle, font: {color: "#777777", size: 13}},
+      tickfont: {size: narrow ? 10 : 12},
       tickvals: Object.keys(levels).map(function (l) { return levels[l]; }),
       ticktext: Object.keys(levels),
       range: expertiseLevelsLimits[state.Subject],

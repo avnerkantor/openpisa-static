@@ -371,11 +371,104 @@ html {
          height: 48px;
     }
 }
- @media (max-width: 520px) {
-     .plots {
+ @media (max-width: 700px) {
+     .columnMain {
+         order: -1;
+    }
+     .plots, body.en .plots {
          flex-direction: column;
+         gap: 20px;
     }
      .plotColumn {
          flex: none;
+    }
+     .plot {
+         height: 280px;
+    }
+     .countrySelect {
+         font-size: 16px;
+         padding: 10px 12px;
+    }
+}
+ @media (max-width: 520px) {
+     body {
+         padding: 8px 12px;
+    }
+     #myHeader {
+         margin-bottom: 15px;
+    }
+     .header-image {
+         height: 100px;
+    }
+     .text-image {
+         font-size: 26pt;
+         right: 10px;
+    }
+     body.en .text-image {
+         right: auto;
+         left: 10px;
+         font-size: 26pt;
+    }
+     .english-link, .english-link:hover {
+         left: 10px;
+         bottom: 10px;
+         font-size: 13pt;
+    }
+     body.en .english-link, body.en .english-link:hover {
+         right: 10px;
+         font-size: 13pt;
+    }
+     .columnText p {
+         text-align: start;
+    }
+     body.en .columnText p {
+         text-align: start;
+    }
+     .filters {
+         gap: 14px 24px;
+    }
+     .btn-circle {
+         width: 56px;
+         height: 56px;
+    }
+     .btnMeasurments {
+         font-size: 14px;
+         padding: 10px 14px;
+    }
+     #Subject {
+         gap: 18px;
+    }
+     .plot {
+         height: 260px;
+    }
+     /*table: scroll sideways inside its box, controls stack, inputs 16px so iOS does not zoom*/
+     #analyzeTable_wrapper {
+         overflow-x: auto;
+         -webkit-overflow-scrolling: touch;
+    }
+     #analyzeTable_wrapper .dataTables_length, #analyzeTable_wrapper .dataTables_filter, #analyzeTable_wrapper .dataTables_info, #analyzeTable_wrapper .dataTables_paginate {
+         float: none;
+         text-align: center;
+         margin: 6px 0;
+    }
+     #analyzeTable thead input, #analyzeTable thead select, #analyzeTable_wrapper input, #analyzeTable_wrapper select {
+         font-size: 16px;
+         min-width: 90px;
+    }
+     .showVars label {
+         display: inline-block;
+         margin: 4px 12px 4px 0;
+    }
+     .btnDownload, .btnDownload:hover {
+         padding: 10px 14px;
+    }
+     .footerBox {
+         padding: 12px 14px;
+    }
+     .logos {
+         gap: 12px 30px;
+    }
+     .logos img {
+         height: 40px;
     }
 }
