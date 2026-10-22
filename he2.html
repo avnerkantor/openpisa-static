@@ -268,8 +268,6 @@ th:first-child,td:first-child{text-align:right}
     <div class="bar" style="position:static;border:0;padding:0" role="group" aria-label="בחירת שאלה">
       <label class="lbl" for="item">שאלה</label>
       <select id="item"></select>
-      <label class="lbl" for="idim">קבוצות</label>
-      <select id="idim"></select>
     </div>
     <div class="meta" id="item-meta"></div>
     <div class="quotes" id="itemquotes"></div>
@@ -288,6 +286,10 @@ th:first-child,td:first-child{text-align:right}
         </figure>
         <figure>
           <span class="fig-title" id="figS-title"></span>
+          <div class="bar" style="position:static;border:0;padding:0" role="group" aria-label="בחירת קבוצות">
+            <label class="lbl" for="idim">הצגה לפי</label>
+            <select id="idim"></select>
+          </div>
           <svg class="chart" id="figS" role="img" aria-labelledby="figS-title"></svg>
           <figcaption>קבוצות שבהן ענו פחות מ־30 תלמידים או 5 בתי ספר אינן מדווחות. הקווים הם מרווחים של 95%.</figcaption>
         </figure>
