@@ -180,6 +180,23 @@ details[open] summary{margin-bottom:8px}
     </div>
   </section>
 
+  <section aria-labelledby="qus" class="official hidden" id="nces">
+    <div class="qhead"><h2 id="qus">Compared with the U.S. national report (NCES)</h2></div>
+    <p>The National Center for Education Statistics published <a href="https://nces.ed.gov/surveys/pisa/pisa2025/">Highlights of U.S. PISA 2025 Results</a> (NCES 2026-032). We checked its main findings against the analysis on this page. The numbers and the conclusions are the same. One headline sentence goes further than the data, though NCES's own detail does not. And NCES is more careful than a simple reading of the data about results by background.</p>
+    <div class="callout"><b>Read all U.S. results with caution</b>
+      <p>The U.S. sample did not meet PISA's standards: 45% of sampled schools took part before replacement (54% after), and 76% of sampled students. The OECD's Adjudication Group concluded that "it is not possible to exclude the possibility of bias on performance indicators, nor to determine its most likely direction" (PISA 2025 Technical Report, Chapter 18). Under adverse but hypothetical scenarios, the distortion could reach about 15% of a standard deviation.</p></div>
+    <h3>Where to quote carefully</h3>
+    <div class="steps">
+      <div class="step"><span class="chip warn">Headline stronger than the detail</span><b class="stitle">"The largest gap of any education system"</b><p class="note" id="nces-gap"></p></div>
+    </div>
+    <h3>Where both agree the data cannot answer</h3>
+    <div class="steps">
+      <div class="step"><span class="chip bad">Not reported</span><b class="stitle">Results by family background and by race or ethnicity</b><p class="note">More than 40% of U.S. students did not receive the student questionnaire: about half because 9 of the 50 states chose not to administer it, and about half because their schools tested early in the testing window. The OECD recommended "limited reporting of questionnaire results", and NCES did not report results by socio-economic status or by race or ethnicity. On this page, U.S. results that rely on the student questionnaire (family background, immigrant background and students' answers) carry a warning: they leave out those 9 states entirely, and no statistical adjustment can bring them back.</p></div>
+    </div>
+    <h3>Where the results are the same</h3>
+    <p class="note">Mean scores (reading 490, mathematics 463, science 502) and the change since 2022 (reading down 14 points, significant; mathematics and science not significantly different), the number of education systems scoring higher, similar and lower, the shares of low and top performers, the 90th-to-10th percentile gap in reading (312 points), and the gender gap: in mathematics it widened from 13 to 24 points in favour of boys, a significant change, while in reading and science it did not change significantly. NCES compares with 89 other education systems, including Cyprus, which is not in the public file.</p>
+  </section>
+
   <section aria-labelledby="q0" class="official hidden" id="rama">
     <div class="qhead"><h2 id="q0">Compared with Israel's national report (RAMA)</h2></div>
     <p>RAMA's report on PISA 2025 (September 2026) is Israel's official publication. We checked its main findings against the analysis on this page. Most numbers are the same. In a few places, this analysis leads to a different conclusion.</p>
@@ -539,6 +556,19 @@ function drawChecks() {
     " in science. A single place overstates how precisely it is known.";
 }
 
+/* ---------- United States: comparison with NCES ---------- */
+var QWARN = { USA: "In the United States, more than 40% of students did not receive the student questionnaire, including all students in 9 of the 50 states. The OECD recommends limited reporting of these results." };
+function drawNces() {
+  var st = "Reading_spread", rows = X.stats.filter(function (d) { return d.year === 2025 && d.stat === st; }).sort(function (a, b) { return b.est - a.est; });
+  var me = rows.filter(function (d) { return d.cnt === CNT; })[0], others = rows.filter(function (d) { return d.cnt !== CNT; }).slice(0, 2);
+  var r = X.spread_rank.filter(function (d) { return d.cnt === CNT && d.stat === st; })[0];
+  var cmp = others.map(function (o) { var d = me.est - o.est, se = Math.sqrt(me.se * me.se + o.se * o.se);
+    return cname(o.cnt) + " " + Math.round(o.est) + " (±" + mg(o.se) + "), a difference that is " + (sig(d, se) ? "significant" : "not significant"); });
+  document.getElementById("nces-gap").textContent = "NCES opens with: the United States \"had the largest 90th–10th percentile score gap in reading of any participating education system\". Its next sentences are more precise: the gap was \"larger than the gaps in 83 other education systems\" and \"among the widest in the world\". The data agree with the detail. The U.S. gap is " +
+    Math.round(me.est) + " points (±" + mg(me.se) + "). The next largest are " + cmp.join(", and ") + ". Allowing for sampling error, the U.S. place is " + ord(Math.round(r.lo)) + " to " + ord(Math.round(r.hi)) +
+    ". Quoting only the opening sentence, as \"the largest in the world\", would go further than the data.";
+}
+
 /* ---------- Israel: comparison with RAMA's report ---------- */
 function drawRama() {
   var c25 = cov(2025), c22 = cov(2022), subs = ["Science", "Reading", "Math"];
@@ -681,7 +711,7 @@ function fillDims() {
 }
 function drawGroups() {
   var sub = SUB, name = SUBNAME[sub], dim = DIM, gs = sortedGroups(dim);
-  document.getElementById("dim-note").textContent = dimNote(dim);
+  document.getElementById("dim-note").textContent = dimNote(dim) + (QWARN[CNT] && (dim === "escs_all" || dim === "immig") ? " " + QWARN[CNT] : "");
   document.getElementById("figL-title").textContent = "Mean " + name + " score by " + dimLabel(dim).toLowerCase() + ", 2022 and 2025";
   var rows = [], trows = [], ok2 = [];
   gs.forEach(function (g) {
@@ -725,7 +755,7 @@ function drawEscs() {
   chip.className = "chip " + (warn ? "warn" : "ok"); chip.textContent = warn ? "Supported, but check who is counted" : "Supported";
   document.getElementById("escs-text").textContent = "National reports usually compare background groups using only students with background data. In " + cname(CNT) + ", " +
     Math.round(c25.noescs) + "% of tested students have none in 2025" + (c22 ? " (" + Math.round(c22.noescs) + "% in 2022)" : "") + ". " +
-    (!c22 ? "There is no 2022 result, so no change can be shown." : warn ? "That is enough to change the picture, so both versions are shown." : "That is small, so both versions should agree.");
+    (!c22 ? "There is no 2022 result, so no change can be shown." : warn ? "That is enough to change the picture, so both versions are shown." : "That is small, so both versions should agree.") + (QWARN[CNT] ? " " + QWARN[CNT] : "");
   document.getElementById("figC-title").textContent = SUBNAME[sub].charAt(0).toUpperCase() + SUBNAME[sub].slice(1) + ", change 2022 to 2025, by family-background third";
   var svg = document.getElementById("figC"); svg.innerHTML = "";
   var thirds = ["Lowest third", "Middle third", "Highest third"], data = thirds.map(function (t) {
@@ -787,6 +817,7 @@ function drawItem() {
   meta.appendChild(h("span", null, "Answered by " + (it.who === "Principal" ? "principals. Shown as the share of students in their schools" : "students")));
   meta.appendChild(h("span", null, "Item " + it["var"] + ", same wording in 2022 and 2025"));
   if (it.kind === "attitude") meta.appendChild(h("span", "warnm", "A feeling or opinion: answer styles differ across cultures. Compare countries with care"));
+  if (QWARN[CNT] && it.who === "Student") meta.appendChild(h("span", "warnm", QWARN[CNT]));
   if (!me) { meta.appendChild(h("span", "warnm", T + " did not ask this question in 2025")); }
   else {
     meta.appendChild(h("span", null, T + ": " + me.answered + "% of tested students have an answer"));
@@ -849,8 +880,9 @@ function loadCountry(c) {
     C = d; document.getElementById("page").classList.remove("loading");
     document.getElementById("sim-isr").classList.toggle("hidden", CNT !== "ISR");
     document.getElementById("rama").classList.toggle("hidden", CNT !== "ISR");
-    document.getElementById("checks").classList.toggle("hidden", CNT === "ISR");
-    drawHeader(); if (CNT === "ISR") drawRama(); else drawChecks(); drawCards(); fillDims(); drawSubject(); drawItem();
+    document.getElementById("checks").classList.toggle("hidden", CNT === "ISR" || CNT === "USA");
+    document.getElementById("nces").classList.toggle("hidden", CNT !== "USA");
+    drawHeader(); if (CNT === "ISR") drawRama(); else if (CNT === "USA") drawNces(); else drawChecks(); drawCards(); fillDims(); drawSubject(); drawItem();
   }).catch(function (e) { document.getElementById("page").classList.remove("loading"); document.getElementById("h1").textContent = "Could not load " + cname(c) + " (" + e.message + ")"; });
 }
 (function init() {
