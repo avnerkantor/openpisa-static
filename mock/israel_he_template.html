@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ישראל בפיזה 2025 | פיזה פתוח</title>
+<meta name="description" content="תוצאות ישראל במבחן פיזה 2025: כמה השתנו הציונים, אצל מי, מה מדווחים תלמידים ומנהלים, ומה הנתונים לא יכולים לומר. כל מספר עם מרווח הטעות שלו.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://opisa.org/he2.html">
+<meta property="og:site_name" content="פיזה פתוח">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="he_IL">
+<meta property="og:title" content="ישראל בפיזה 2025 | פיזה פתוח">
+<meta property="og:description" content="כמה השתנו הציונים, אצל מי, מה מדווחים תלמידים ומנהלים, ומה הנתונים לא יכולים לומר.">
+<meta property="og:url" content="https://opisa.org/he2.html">
+<meta property="og:image" content="https://opisa.org/img/PISA_TopBG.jpg">
+<link rel="shortcut icon" href="img/bag-512.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Frank+Ruhl+Libre:wght@500;700&display=swap">
+<!-- Google tag (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BR8NWT72D0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BR8NWT72D0');
+</script>
+<!--CSS-->
+<style>
+:root{--display:"Frank Ruhl Libre", "David", Georgia, serif;--body:"Open Sans", "Segoe UI", Arial, sans-serif}
+.seg.segwrap{flex-wrap:wrap;align-self:flex-start;max-width:100%}
+.hidden{display:none!important}
+.gnote{font-size:13px;color:var(--muted)}
+.chart{direction:ltr}
+.quote{border-left:0;border-right:3px solid var(--accent);padding:4px 12px 4px 0}
+.callout{border-left:0;border-right:3px solid var(--warn);border-radius:8px 0 0 8px}
+th,td{text-align:left}
+th:first-child,td:first-child{text-align:right}
+.card .sub{letter-spacing:0;text-transform:none}
+.topnav{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:14px}
+.topnav a{color:var(--accent);text-decoration:none;font-weight:600}
+.topnav a:hover{text-decoration:underline}
+.beta{font-size:13px;color:var(--muted)}
+.tip{direction:rtl;text-align:right}
+.official .step{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.official .stitle{font-family:var(--body);font-size:16px}
+</style>
+</head>
+<body>
+<div class="wrap" id="page">
+  <nav class="topnav" aria-label="ניווט"><a href="he.html">פיזה פתוח</a><a href="index.html">Open PISA (English)</a></nav>
+
+  <header style="display:flex;flex-direction:column;gap:10px">
+    <h1>ישראל בפיזה 2025</h1>
+    <p class="lede">מה הנתונים יכולים לומר, עד כמה הם בטוחים, ועל מה הם לא יכולים לענות.</p>
+    <p class="beta">עמוד חדש בפיזה פתוח. כל המספרים חושבו מהקבצים הציבוריים של פיזה 2022 ו־2025, עם טעויות התקן של פיזה.</p>
+  </header>
+
+  <div class="bar" role="group" aria-label="תחום">
+    <span class="lbl">תחום</span>
+    <div class="seg">
+      <button type="button" data-sub="Reading" aria-pressed="true">קריאה</button>
+      <button type="button" data-sub="Math" aria-pressed="false">מתמטיקה</button>
+      <button type="button" data-sub="Science" aria-pressed="false">מדעים</button>
+    </div>
+  </div>
+
+  <div class="coverage" id="coverage" aria-label="את מי התוצאות מייצגות"></div>
+
+  <section aria-labelledby="q0" class="official">
+    <div class="qhead"><h2 id="q0">השוואה לדוח ראמ"ה</h2></div>
+    <p>הדוח של ראמ"ה על פיזה 2025 (ספטמבר 2026) הוא הפרסום הרשמי בישראל. בדקנו את הממצאים העיקריים שלו מול הניתוח בעמוד זה. רוב המספרים זהים. בכמה מקומות הניתוח כאן מוביל לתובנה שונה.</p>
+    <h3>היכן התובנה שונה</h3>
+    <div class="steps">
+      <div class="step"><span class="chip warn">תובנה שונה</span><b class="stitle">"החזקים נחלשו"</b><p class="note" id="rama-escs"></p></div>
+      <div class="step"><span class="chip warn" id="rama-gender-chip">תובנה שונה</span><b class="stitle">"הבנים ירדו יותר מהבנות"</b><p class="note" id="rama-gender"></p></div>
+      <div class="step"><span class="chip warn">דיוק שונה</span><b class="stitle">דירוג במקום אחד</b><p class="note" id="rama-rank"></p></div>
+      <div class="step"><span class="chip bad">גישה שונה</span><b class="stitle">קשרים לציונים</b><p class="note">ראמ"ה מציגה פערי ציונים בין תלמידים לפי גורמים כמו שימוש בבינה מלאכותית, תמיכת המשפחה, הסחת דעת מטלפונים ומחסור במורים, עם הסתייגות שאין זה קשר סיבתי. העמוד הזה אינו מציג פערים כאלה, כי הם משקפים בעיקר הבדלים אחרים בין התלמידים (ראו את הדוגמה על גודל הכיתה).</p></div>
+    </div>
+    <h3>היכן התוצאות זהות</h3>
+    <p class="note">הממוצעים והשינויים (קריאה 436, ירידה של 38; מתמטיקה 433, ירידה של 25; מדעים 442, ירידה של 23), שיעורי המתקשים והמצטיינים, המגמות של דוברי עברית ודוברי ערבית (ירידה של 44 ו־21 נקודות בקריאה), שיעורי המתקשים לפי שפה, ודיווחי המנהלים והתלמידים (מחסור במורים 50% לעומת 39% ב־OECD, "בית הספר בזבוז זמן" 37% לעומת 24%, איסור טלפונים 30% לעומת 49%). כמו בדוח ראמ"ה, החינוך החרדי מוצג רק לבנות, וציוניהן זהים לאלה שבדוח (קריאה 503, מתמטיקה 455, מדעים 466). כל המספרים בעמוד נבדקו גם מול הטבלאות שפרסם ה־OECD (PISA 2025 Results, Volume I) ותואמים להן.</p>
+    <h3>מה יש רק בדוח ראמ"ה</h3>
+    <p class="note">מגמות לפי מגזר בין 2022 ל־2025 (למשל, ירידה של 52 נקודות בקריאה בחינוך הממלכתי) ומגמות לפי מגזר ומגדר. הקובץ הציבורי של 2022 אינו מזהה מגזר, ולכן אי אפשר לחשב אותן מהנתונים הפתוחים.</p>
+  </section>
+
+  <!-- HOW MUCH -->
+  <section aria-labelledby="q1">
+    <div class="qhead"><h2 id="q1">כמה השתנו הציונים?</h2><span class="chip ok">הנתונים תומכים בכך</span></div>
+    <div class="cards" id="cards"></div>
+    <div class="quotes" id="q1quotes"></div>
+    <div class="figs">
+      <figure>
+        <span class="fig-title" id="figA-title"></span>
+        <svg class="chart" id="figA" role="img" aria-labelledby="figA-title"></svg>
+        <figcaption>כל שורה היא מדינה, מהירידה הגדולה ביותר (למעלה) ועד העלייה הגדולה ביותר. הנקודה היא השינוי, והקו הוא מרווח של 95%, כולל טעות הקישור בין המבחנים. הקו השחור הוא המדינה האמצעית.</figcaption>
+        <details><summary>הצגה כטבלה</summary><div class="tablewrap" id="figA-table"></div></details>
+      </figure>
+      <figure>
+        <span class="fig-title" id="peer-title"></span>
+        <p class="note" id="peer-text"></p>
+        <div class="peers" id="peers"></div>
+        <figcaption>"דומה" פירושו שההבדל בציון 2025 אינו מובהק סטטיסטית. דירוג יחיד היה מציג את מקומה של ישראל כמדויק יותר משהוא.</figcaption>
+      </figure>
+    </div>
+    <div class="sub-block">
+      <div class="qhead"><h3>תלמידים חלשים וחזקים</h3></div>
+      <div class="tiles" id="prof"></div>
+      <figure>
+        <span class="fig-title" id="figP-title"></span>
+        <div class="legend"><span><i class="sw h"></i>2022</span><span><i class="sw f"></i>2025</span></div>
+        <svg class="chart" id="figP" role="img" aria-labelledby="figP-title"></svg>
+        <figcaption>העשירון התחתון: הציון שמתחתיו נמצאים 10% החלשים. העשירון העליון: הציון שמעליו נמצאים 10% החזקים. ליד כל שורה מופיע השינוי ומרווח הטעות שלו.</figcaption>
+      </figure>
+      <figure>
+        <span class="fig-title" id="figG-title"></span>
+        <svg class="chart" id="figG" role="img" aria-labelledby="figG-title"></svg>
+        <figcaption>הפער בנקודות בין העשירון העליון לתחתון, 2025. כל שורה היא מדינה, הפער הגדול ביותר למעלה. הקו השחור הוא המדינה האמצעית.</figcaption>
+        <details><summary>הצגה כטבלה</summary><div class="tablewrap" id="figG-table"></div></details>
+      </figure>
+      <div class="quotes" id="profquotes"></div>
+    </div>
+  </section>
+
+  <!-- FOR WHOM -->
+  <section aria-labelledby="q2">
+    <div class="qhead"><h2 id="q2">אצל מי?</h2><span class="chip warn">בחלקו: בדקו כל סוג</span></div>
+    <div class="sub-block" style="border-top:0;padding-top:0">
+      <div class="qhead"><h3>פערים ושינויים בין קבוצות</h3><span class="chip ok">נתמך, בדקו את גודל הקבוצות</span></div>
+      <div class="seg segwrap" id="dims" role="group" aria-label="קבוצה"></div>
+      <p class="gnote" id="dim-note"></p>
+      <figure>
+        <span class="fig-title" id="figL-title"></span>
+        <div class="legend"><span><i class="sw h"></i>2022</span><span><i class="sw f"></i>2025</span></div>
+        <svg class="chart" id="figL" role="img" aria-labelledby="figL-title"></svg>
+      </figure>
+      <div class="tablewrap" id="group-table"></div>
+      <div class="quotes" id="groupquotes"></div>
+      <p class="note">± הוא מרווח של 95%. קו מפריד מסמן קבוצה של פחות מ־30 תלמידים או 5 בתי ספר, שפיזה אינו מדווח עליה. השינויים כוללים את טעות הקישור.</p>
+    </div>
+
+    <div class="sub-block">
+      <div class="qhead"><h3>שינוי לפי רקע משפחתי</h3><span class="chip" id="escs-chip"></span></div>
+      <p id="escs-text"></p>
+      <figure>
+        <span class="fig-title" id="figC-title"></span>
+        <div class="legend"><span><i class="sw h"></i>רק תלמידים עם נתוני רקע</span><span><i class="sw f"></i>כל התלמידים</span></div>
+        <svg class="chart" id="figC" role="img" aria-labelledby="figC-title"></svg>
+        <figcaption>השינוי בין 2022 ל־2025 לפי שליש של מדד הרקע המשפחתי. הקווים הם מרווחים של 95%. תלמידים ללא נתוני רקע שובצו לפי הרקע החזוי שלהם.</figcaption>
+      </figure>
+    </div>
+
+    <div class="sub-block">
+      <div class="qhead"><h3>האם השפעה שונה בין קבוצות</h3><span class="chip bad">הנתונים ממעיטים בכך</span></div>
+      <p>שאלות כמו "האם הרקע המשפחתי משפיע יותר בבתי ספר מסוימים?" שואלות כיצד השפעה משתנה בין קבוצות. המודל שמפיק את ציוני פיזה אינו כולל הבדלים כאלה, ולכן הנתונים שפורסמו מציגים אותם קטנים מכפי שהם.</p>
+      <div class="steps">
+        <div class="step"><span class="note">הבדל גדול: הפער הנוסף לפי רקע בבתי ספר דוברי ערבית, מדעים</span><b>25 → 20 נקודות</b><span class="note">קטן בכחמישית בנתונים בסגנון שפורסם. עדיין ברור.</span></div>
+        <div class="step"><span class="note">הבדל מתון: האם הרקע משפיע יותר על החלשים ביותר, מתמטיקה</span><b>16 → 7 מתוך 21</b><span class="note">מספר הסימולציות שבהן ההבדל נמצא: מודל מלא מול נתונים בסגנון שפורסם.</span></div>
+      </div>
+      <p class="note">סימולציה על מערך הדגימה של ישראל בפיזה 2025, 21 הרצות. הבדל קטן או חסר מסוג זה צריך להיות מדווח כלא חד־משמעי, ולא כ"זהה לכולם".</p>
+    </div>
+  </section>
+
+  <!-- ITEMS -->
+  <section aria-labelledby="q3">
+    <div class="qhead"><h2 id="q3">מה מדווחים תלמידים ומנהלים</h2><span class="chip ok">כמה נפוץ, אצל מי, ושינוי</span></div>
+    <p>פיזה שואל תלמידים ומנהלים על החיים בבית הספר. התשובות הן עובדות שראוי לדווח עליהן בפני עצמן. חלק זה מראה כמה כל תשובה נפוצה. הוא אינו מקשר בין התשובות לציונים.</p>
+    <div class="bar" style="position:static;border:0;padding:0" role="group" aria-label="בחירת שאלה">
+      <label class="lbl" for="item">שאלה</label>
+      <select id="item"></select>
+    </div>
+    <div class="meta" id="item-meta"></div>
+    <div class="quotes" id="itemquotes"></div>
+    <div class="figs2">
+      <figure>
+        <span class="fig-title">בכל המדינות, 2025</span>
+        <svg class="chart" id="figI" role="img" aria-label="השיעור בכל מדינה"></svg>
+        <figcaption>כל שורה היא מדינה, לפי השיעור. הקו השחור הוא ממוצע ה־OECD. הקווים הם מרווחים של 95%.</figcaption>
+        <details><summary>הצגה כטבלה</summary><div class="tablewrap" id="figI-table"></div></details>
+      </figure>
+      <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+        <figure>
+          <span class="fig-title">השינוי מאז 2022</span>
+          <div class="legend"><span><i class="sw h"></i>2022</span><span><i class="sw f"></i>2025</span></div>
+          <svg class="chart" id="figT" role="img" aria-label="השיעור ב־2022 וב־2025"></svg>
+        </figure>
+        <figure>
+          <span class="fig-title" id="figS-title"></span>
+          <div class="bar" style="position:static;border:0;padding:0" role="group" aria-label="בחירת קבוצות">
+            <label class="lbl" for="idim">הצגה לפי</label>
+            <select id="idim"></select>
+          </div>
+          <svg class="chart" id="figS" role="img" aria-labelledby="figS-title"></svg>
+          <figcaption>קבוצות שבהן ענו פחות מ־30 תלמידים או 5 בתי ספר אינן מדווחות. הקווים הם מרווחים של 95%.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section aria-labelledby="q4">
+    <div class="qhead"><h2 id="q4">למה הציונים ירדו?</h2><span class="chip bad">פיזה לא יכול לענות על כך</span></div>
+    <p>פיזה בוחן כל תלמיד פעם אחת, ואינו משבץ תלמידים לבתי ספר או למדיניות. הוא מראה מה הולך יחד, לא מה גורם למה. פער בציונים בין תלמידים שנבדלים בתשובה לשאלה אחת משקף בדרך כלל הבדלים רבים אחרים ביניהם.</p>
+    <div class="callout">
+      <b>דוגמה: גודל הכיתה</b>
+      <p>בישראל, תלמידים בכיתות גדולות יותר מקבלים ציון גבוה יותר במתמטיקה. זה לא משום שצפיפות עוזרת. כיתות גדולות נפוצות יותר בבתי ספר שתלמידיהם מבוססים יותר. התחשבות ברקע של בית הספר ובמגזר בלבד מקטינה את הפער בכ־40%, והבדלים אחרים נשארים לא מדודים.</p>
+    </div>
+    <p>מה שפיזה כן יכול לעשות לטענת "למה" הוא לבדוק את ההנחה שלה. אם נטען שהירידה נובעת ממחסור במורים, החלק הקודם מראה אם מנהלים דיווחו על יותר מחסור ב־2025 מאשר ב־2022. גורם שלא השתנה אינו יכול להסביר שינוי בעצמו.</p>
+  </section>
+
+  <footer>
+    <span>שיטה: האומדנים משתמשים בכל עשרת הערכים הסבירים ובשמונים משקלות החזרה (שיטת Fay). שינויים בממוצעים ובעשירונים כוללים את טעות הקישור של ה־OECD (הדוח הטכני של פיזה 2025, טבלה 15.A.20). שינויים בשיעורים אינם כוללים אותה, ולכן המרווחים שלהם צרים מעט מדי. רמות הבקיאות לפי ספי הדיווח של פיזה. הבדלים בין מדינות נבדקו כמדגמים בלתי תלויים. שיעור הכיסוי של בני 15 הוא Coverage Index 3 (טבלה 14.A.1).</span>
+    <span>קבוצות: שלישי הרקע המשפחתי נחתכים בתוך ישראל בכל מחזור. המגזר נלקח משכבות הדגימה של ישראל, שפורסמו רק ל־2025. תשובות מנהלים מוצגות כשיעור התלמידים בבתי הספר שלהם. שאלות השאלון זהות בניסוחן ב־2022 וב־2025.</span>
+    <span><b>על העמוד:</b> העמוד מיישם רעיונות ממחקר על מגבלות של נתוני סקרים ציבוריים: מי חסר בנתונים, מה מודל עיבוד הנתונים ממעיט בו, ועל מה הסקר לא יכול לענות. Kantor, "Open but Opaque" (בהכנה).</span>
+    <span>מקורות: קבצי הנתונים הציבוריים של OECD PISA 2022 ו־2025. תוצאות הסימולציה: Kantor, "Open but Opaque" (בהכנה). פיזה פתוח, ד"ר אבנר קנטור.</span>
+  </footer>
+</div>
+
+<script type="application/json" id="story-data">/*STORY*/</script>
+<script type="application/json" id="items-data">/*ITEMS*/</script>
+<script type="application/json" id="extras-data">/*EXTRAS*/</script>
+<script type="application/json" id="country-data">/*COUNTRY*/</script>
+<script>
+var S = JSON.parse(document.getElementById("story-data").textContent);
+var Q = JSON.parse(document.getElementById("items-data").textContent);
+var X = JSON.parse(document.getElementById("extras-data").textContent);
+var C = JSON.parse(document.getElementById("country-data").textContent);
+var NS = "http://www.w3.org/2000/svg", Z = 1.96, CNT = "ISR", SUB = "Reading", DIM = null;
+var LE = { Reading: 1.09, Math: 1.22, Science: 3.12 };
+var SUBNAME = { Reading: "קריאה", Math: "מתמטיקה", Science: "מדעים" };
+var SUBIN = { Reading: "בקריאה", Math: "במתמטיקה", Science: "במדעים" };
+var HE = { ALB: "אלבניה", ARE: "איחוד האמירויות", ARG: "ארגנטינה", ARM: "ארמניה", AUS: "אוסטרליה", AUT: "אוסטריה", AZE: "אזרבייג'ן", BEL: "בלגיה",
+  BGR: "בולגריה", BRA: "ברזיל", BRN: "ברוניי", CAN: "קנדה", CHE: "שווייץ", CHL: "צ'ילה", COL: "קולומביה", CRI: "קוסטה ריקה", CZE: "צ'כיה", DEU: "גרמניה",
+  DNK: "דנמרק", DOM: "הרפובליקה הדומיניקנית", ECU: "אקוודור", ESP: "ספרד", EST: "אסטוניה", FIN: "פינלנד", FRA: "צרפת", GBR: "בריטניה", GEO: "גאורגיה",
+  GRC: "יוון", GTM: "גואטמלה", HKG: "הונג קונג (סין)", HRV: "קרואטיה", HUN: "הונגריה", IDN: "אינדונזיה", IRL: "אירלנד", ISL: "איסלנד", ISR: "ישראל",
+  ITA: "איטליה", JAM: "ג'מייקה", JOR: "ירדן", JPN: "יפן", KAZ: "קזחסטן", KEN: "קניה", KGZ: "קירגיזסטן", KHM: "קמבודיה", KOR: "קוריאה", KSV: "קוסובו",
+  LBN: "לבנון", LTU: "ליטא", LUX: "לוקסמבורג", LVA: "לטביה", MAC: "מקאו (סין)", MAR: "מרוקו", MDA: "מולדובה", MEX: "מקסיקו", MKD: "מקדוניה הצפונית",
+  MLT: "מלטה", MNE: "מונטנגרו", MNG: "מונגוליה", MUS: "מאוריציוס", MYS: "מלזיה", NLD: "הולנד", NOR: "נורווגיה", NZL: "ניו זילנד", PAN: "פנמה", PER: "פרו",
+  PHL: "הפיליפינים", POL: "פולין", PRT: "פורטוגל", PRY: "פרגוואי", PSE: "הרשות הפלסטינית", QAT: "קטאר", QCI: "בייג'ינג, שנגחאי, ג'יאנגסו וג'ג'יאנג (סין)",
+  QKI: "אזור כורדיסטן (עיראק)", QTJ: "דושנבה (טג'יקיסטן)", QUA: "אוקראינה (17 מחוזות)", ROU: "רומניה", RWA: "רואנדה", SAU: "ערב הסעודית", SGP: "סינגפור",
+  SLV: "אל סלבדור", SRB: "סרביה", SVK: "סלובקיה", SVN: "סלובניה", SWE: "שוודיה", TAP: "טאיפיי הסינית", THA: "תאילנד", TUR: "טורקיה", URY: "אורוגוואי",
+  USA: "ארצות הברית", UZB: "אוזבקיסטן", VNM: "וייטנאם", ZMB: "זמביה" };
+var EN = {}; S.Reading.forEach(function (d) { EN[d.c] = d.n; });
+function cname(c) { return HE[c] || EN[c] || c; }
+var GL = { "Girls": "בנות", "Boys": "בנים", "Lowest third": "השליש התחתון", "Middle third": "השליש האמצעי", "Highest third": "השליש העליון",
+  "Native": "ילידים", "Second generation": "דור שני להגירה", "First generation": "דור ראשון להגירה", "Hebrew": "עברית", "Arabic": "ערבית",
+  "Village or small town": "כפר או יישוב קטן", "Town": "עיירה", "City": "עיר", "Public": "ציבורי", "Private": "פרטי",
+  "Hebrew state": "ממלכתי (עברי)", "Hebrew state-religious": "ממלכתי־דתי", "Haredi girls": "חרדי (בנות)", "Arab": "ערבי", "Druze": "דרוזי", "Bedouin": "בדואי" };
+function gl(g) { return GL[g] || g; }
+/* bidi: keep numbers left-to-right inside Hebrew text */
+function iso(s) { return "⁦" + s + "⁩"; }
+function sgnRaw(v) { var r = String(Math.round(v)); if (Number(r) === 0) r = "0"; return (Number(r) > 0 ? "+" : Number(r) < 0 ? "−" : "") + r.replace("-", ""); }
+function sgn(v) { return iso(sgnRaw(v)); }
+function pm(se) { return iso("±" + Math.round(Z * se)); }
+function pc(v) { return iso(Math.round(v) + "%"); }
+function num(v) { return iso(String(Math.round(v))); }
+function sig(est, se) { return Math.abs(est) > Z * se; }
+function zcrit(p) { var t = Math.sqrt(-2 * Math.log(p)); return t - (2.515517 + 0.802853 * t + 0.010328 * t * t) / (1 + 1.432788 * t + 0.189269 * t * t + 0.001308 * t * t * t); }
+function ticks(lo, hi, step) { var a = []; for (var v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) a.push(v); return a; }
+function median(a) { var s = a.slice().sort(function (p, q) { return p - q; }), n = s.length; return n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2; }
+function niceStep(range) { var s = [1, 2, 5, 10, 20, 25, 50, 100]; for (var i = 0; i < s.length; i++) if (range / s[i] <= 6) return s[i]; return 100; }
+function xs(cnt, year, stat) { return X.stats.filter(function (d) { return d.cnt === cnt && d.year === year && d.stat === stat; })[0]; }
+function el(tag, attrs, parent, text) { var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; if (parent) parent.appendChild(e); return e; }
+function h(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+function hoverRows(svg, rows, W) {
+  var fig = svg.parentElement, tip = fig.querySelector(".tip");
+  if (!tip) { tip = h("div", "tip"); fig.appendChild(tip); }
+  var line = el("line", { "class": "hl", x1: 0, x2: W, y1: -10, y2: -10, opacity: 0 }, svg);
+  svg.onmousemove = function (ev) {
+    var pt = svg.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY;
+    var p = pt.matrixTransform(svg.getScreenCTM().inverse());
+    var r = null; for (var i = 0; i < rows.length; i++) if (p.y >= rows[i].y0 && p.y < rows[i].y1) { r = rows[i]; break; }
+    if (!r) { tip.style.opacity = 0; line.setAttribute("opacity", 0); return; }
+    tip.innerHTML = r.html; tip.style.opacity = 1;
+    var fb = fig.getBoundingClientRect(), x = ev.clientX - fb.left + 14, y = ev.clientY - fb.top + 10;
+    if (x + 240 > fb.width) x = Math.max(0, ev.clientX - fb.left - 250);
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+    var yy = (r.y0 + r.y1) / 2; line.setAttribute("y1", yy); line.setAttribute("y2", yy); line.setAttribute("opacity", r.thin ? 0.5 : 0);
+  };
+  svg.onmouseleave = function () { tip.style.opacity = 0; line.setAttribute("opacity", 0); };
+}
+function table(rows, head) {
+  var t = h("table"), th = h("thead"), tr = h("tr");
+  head.forEach(function (x) { tr.appendChild(h("th", null, x)); }); th.appendChild(tr); t.appendChild(th);
+  var tb = h("tbody");
+  rows.forEach(function (r) { var tr = h("tr", r.hl ? "isr" : null); r.cells.forEach(function (c) { tr.appendChild(h("td", c && c.cls || null, c && c.t != null ? c.t : c)); }); tb.appendChild(tr); });
+  t.appendChild(tb); return t;
+}
+function quote(box, text) {
+  var q = h("div", "quote"); q.appendChild(h("p", null, text)); box.appendChild(q);
+}
+function strip(svg, rows, opt) {
+  svg.innerHTML = "";
+  var W = opt.W || 520, L = opt.L || 10, R = opt.R || 10, T = 26, rh = opt.rh || 7, H = T + rows.length * rh + 26;
+  svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+  var lo = opt.lo != null ? opt.lo : Math.min.apply(null, rows.map(function (d) { return d.v - Z * d.se; }));
+  var hi = opt.hi != null ? opt.hi : Math.max.apply(null, rows.map(function (d) { return d.v + Z * d.se; }));
+  var st = niceStep(hi - lo); lo = Math.floor(lo / st) * st; hi = Math.ceil(hi / st) * st;
+  var x = function (v) { return L + (v - lo) / (hi - lo) * (W - L - R); };
+  ticks(lo, hi, st).forEach(function (v) {
+    el("line", { x1: x(v), x2: x(v), y1: T - 4, y2: H - 22, "class": v === 0 && opt.zero ? "zero" : "grid" }, svg);
+    el("text", { x: x(v), y: H - 6, "text-anchor": "middle" }, svg, opt.fmt(v));
+  });
+  if (opt.ref != null) {
+    el("line", { x1: x(opt.ref), x2: x(opt.ref), y1: T - 4, y2: H - 22, "class": "ref" }, svg);
+    el("text", { x: x(opt.ref) + (opt.refLeft ? -4 : 4), y: T - 12, "text-anchor": opt.refLeft ? "end" : "start", "class": "lab" }, svg, opt.refLabel);
+  }
+  var hov = [];
+  rows.forEach(function (d, i) { var y = T + i * rh + rh / 2, m = Z * d.se;
+    if (!d.hi) el("line", { x1: x(d.v - m), x2: x(d.v + m), y1: y, y2: y, "class": "ci" }, svg);
+    hov.push({ y0: y - rh / 2, y1: y + rh / 2, html: d.tip, thin: true }); });
+  rows.forEach(function (d, i) { if (!d.hi) el("circle", { cx: x(d.v), cy: T + i * rh + rh / 2, r: 2.4, "class": "pt" }, svg); });
+  rows.forEach(function (d, i) {
+    if (!d.hi) return;
+    var y = T + i * rh + rh / 2, m = Z * d.se;
+    el("line", { x1: x(d.v - m), x2: x(d.v + m), y1: y, y2: y, "class": "hi-ci" }, svg);
+    el("circle", { cx: x(d.v), cy: y, r: 5.5, "class": "hi-pt" }, svg);
+    var right = x(d.v + m) + 8, leftSide = right > W - 170;
+    el("text", { x: leftSide ? x(d.v - m) - 8 : right, y: y + 4, "text-anchor": leftSide ? "end" : "start", "class": "lab" }, svg, opt.hiLabel(d, i));
+  });
+  hoverRows(svg, hov, W);
+}
+function dumbbell(svg, rows, opt) {
+  svg.innerHTML = "";
+  var W = opt.W || 560, L = opt.L || 150, R = opt.R || 120, T = 6, rh = 34, H = T + Math.max(1, rows.length) * rh + 24;
+  svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+  var vals = []; rows.forEach(function (r) { [r.a, r.b].forEach(function (v) { if (v != null) vals.push(v); }); });
+  if (!vals.length) return;
+  var lo = opt.lo != null ? opt.lo : Math.min.apply(null, vals) - 10, hi = opt.hi != null ? opt.hi : Math.max.apply(null, vals) + 10;
+  var st = niceStep(hi - lo); lo = Math.floor(lo / st) * st; hi = Math.ceil(hi / st) * st;
+  var x = function (v) { return L + (v - lo) / (hi - lo) * (W - L - R); };
+  ticks(lo, hi, st).forEach(function (v) { el("line", { x1: x(v), x2: x(v), y1: T, y2: H - 20, "class": "grid" }, svg); el("text", { x: x(v), y: H - 5, "text-anchor": "middle" }, svg, opt.fmt(v)); });
+  var hov = [];
+  rows.forEach(function (r, j) {
+    var y = T + j * rh + rh / 2;
+    el("text", { x: L - 10, y: y + 4, "text-anchor": "end", "class": r.strong ? "lab" : "" }, svg, r.label);
+    if (r.na) { el("text", { x: L + 4, y: y + 4 }, svg, r.na); hov.push({ y0: y - rh / 2, y1: y + rh / 2, html: "<b>" + r.label + "</b><br>" + r.na }); return; }
+    if (r.a != null && r.b != null) el("line", { x1: x(r.a), x2: x(r.b), y1: y, y2: y, "class": "link" }, svg);
+    if (r.a != null) el("circle", { cx: x(r.a), cy: y, r: 5.5, "class": "hollow" }, svg);
+    if (r.b != null) el("circle", { cx: x(r.b), cy: y, r: 6, "class": "hi-pt" }, svg);
+    if (r.note) el("text", { x: W - R + 10, y: y + 4, "class": r.noteStrong ? "lab" : "" }, svg, r.note);
+    hov.push({ y0: y - rh / 2, y1: y + rh / 2, html: r.tip });
+  });
+  hoverRows(svg, hov, W);
+}
+
+/* ---------- data helpers ---------- */
+function row(sub, c) { return S[sub].filter(function (d) { return d.c === c; })[0]; }
+function yr(y) { return C["y" + y] || null; }
+function cov(y) { var d = yr(y); return d ? (Array.isArray(d.cov) ? d.cov[0] : d.cov) : null; }
+function grp(y, dim, group, sub) { var d = yr(y); if (!d || !d.groups) return null; return d.groups.filter(function (g) { return g.dim === dim && g.subject === sub && g.group === group; })[0] || null; }
+function groupsOf(y, dim) { var d = yr(y), seen = {}, out = []; if (!d || !d.groups) return out; d.groups.forEach(function (g) { if (g.dim === dim && !seen[g.group]) { seen[g.group] = 1; out.push(g.group); } }); return out; }
+function dimsOf() { var d = yr(2025), seen = {}, out = []; d.groups.forEach(function (g) { if (!seen[g.dim]) { seen[g.dim] = 1; out.push(g.dim); } }); return out; }
+function reportable(g) { return g && g.n >= 30 && g.schools >= 5; }
+var ORDER = { escs_all: ["Lowest third", "Middle third", "Highest third"], immig: ["Native", "Second generation", "First generation"], gender: ["Girls", "Boys"],
+  school_type: ["Public", "Private"], location: ["Village or small town", "Town", "City"], lang: ["Hebrew", "Arabic"],
+  design: ["Hebrew state", "Hebrew state-religious", "Haredi girls", "Arab", "Druze", "Bedouin"] };
+var DIMLAB = { design: "מגזר", lang: "שפת המבחן", gender: "מגדר", escs_all: "רקע משפחתי", immig: "רקע הגירה", school_type: "סוג בית הספר", location: "מקום בית הספר", region: "אזור" };
+var DIMIN = { design: "לפי מגזר", lang: "לפי שפת המבחן", gender: "לפי מגדר", escs_all: "לפי רקע משפחתי", immig: "לפי רקע הגירה", school_type: "לפי סוג בית הספר", location: "לפי מקום בית הספר", region: "לפי אזור" };
+var DIMNOTE = { design: "המגזר נלקח משכבות הדגימה של ישראל. הוא פורסם רק ל־2025, ולכן אי אפשר להציג את השינוי מאז 2022. בחינוך החרדי מוצגות רק בנות, כמו בדוח ראמ\"ה, כי שיעור ההשתתפות של בנים חרדים היה נמוך מדי.",
+  lang: "השפה שבה התלמיד נבחן.", gender: "", escs_all: "שלישים של מדד הרקע המשפחתי, שנחתכים בתוך ישראל בכל מחזור. תלמידים ללא נתוני רקע שובצו לפי הרקע החזוי שלהם.",
+  immig: "ילידים: לפחות הורה אחד נולד בישראל. תלמידים בלי המידע הזה אינם נכללים.", school_type: "לפי דיווח מנהל בית הספר.",
+  location: "גודל היישוב לפי דיווח המנהל: כפר או יישוב קטן (עד 15,000 תושבים), עיירה (15,000 עד 100,000), עיר (מעל 100,000)." };
+function sortedGroups(dim) { var g = groupsOf(2025, dim); if (ORDER[dim]) g.sort(function (a, b) { return ORDER[dim].indexOf(a) - ORDER[dim].indexOf(b); }); return g; }
+
+/* ---------- section 1 ---------- */
+function peers(sub) {
+  var me = row(sub, CNT), up = [], sim = [], dn = [];
+  S[sub].forEach(function (d) { if (d.c === CNT || d.m == null) return; var diff = d.m - me.m, se = Math.sqrt(d.se * d.se + me.se * me.se); (diff > Z * se ? up : diff < -Z * se ? dn : sim).push(d); });
+  sim.sort(function (a, b) { return b.m - a.m; });
+  return { up: up, sim: sim, dn: dn, me: me };
+}
+function drawHeader() {
+  var c25 = cov(2025), c22 = cov(2022), box = document.getElementById("coverage"); box.innerHTML = "";
+  var tile = function (big, txt) { var d = h("div", "cov"); d.appendChild(h("b", null, big)); d.appendChild(h("span", null, txt)); box.appendChild(d); };
+  tile(c25.n.toLocaleString("he-IL"), "תלמידים ב־" + c25.schools + " בתי ספר נבחנו");
+  if (C.coverage15 != null) tile("כ־" + Math.round(100 - C.coverage15) + "%", "מבני ה־15 לא נכללו במדגם. רובם בנים חרדים, שבתי הספר שלהם כמעט לא השתתפו.");
+  tile(Math.round(c25.noescs) + "%", "מהנבחנים חסרים נתוני רקע משפחתי, לעומת " + pc(c22.noescs) + " ב־2022");
+}
+function drawDiff() {
+  var c25 = cov(2025), c22 = cov(2022);
+  var ch = function (dim, t, sub) { var a = grp(2022, dim, t, sub), b = grp(2025, dim, t, sub); return { ch: b.mean - a.mean, se: Math.sqrt(a.se * a.se + b.se * b.se + LE[sub] * LE[sub]) }; };
+  var fell = function (o) { return sig(o.ch, o.se) ? (o.ch < 0 ? "ירד ב־" : "עלה ב־") + num(Math.abs(o.ch)) : "לא השתנה באופן מובהק"; };
+  var subs = ["Science", "Reading", "Math"], RAMA_LOW = { Science: "+7", Reading: "+1", Math: "+4" };
+  document.getElementById("rama-escs").textContent = "לפי ראמ\"ה, הירידה התרכזה בתלמידים מרקע חברתי־כלכלי גבוה, ובקרב תלמידים מרקע נמוך לא נרשם שינוי מובהק (מדעים " +
+    iso(RAMA_LOW.Science) + ", קריאה " + iso(RAMA_LOW.Reading) + ", מתמטיקה " + iso(RAMA_LOW.Math) + "). החישוב מבוסס על מדד הרקע של פיזה, שחסר ל־" + pc(c25.noescs) + " מהנבחנים ב־2025 (" + pc(c22.noescs) +
+    " ב־2022), ואלה תלמידים עם ציונים נמוכים בהרבה. כשכוללים את כל התלמידים, גם השליש התחתון ירד באופן מובהק: " +
+    subs.map(function (s) { var o = ch("escs_all", "Lowest third", s); return SUBIN[s] + " " + fell(o) + " (" + pm(o.se) + ")"; }).join(", ") +
+    ". כלומר, כולם ירדו, והחזקים ירדו יותר.";
+  /* gender: change in the girls-minus-boys gap, with the gap's standard error estimated directly (replicate weights) */
+  var g = subs.map(function (s) { var r = row(s, CNT); return { s: s, d: r.g - r.g22, se: Math.sqrt(r.gse * r.gse + r.gse22 * r.gse22) }; });
+  var yes = g.filter(function (o) { return sig(o.d, o.se); }), no = g.filter(function (o) { return !sig(o.d, o.se); });
+  var gtxt = function (o) { return SUBIN[o.s] + " " + num(Math.abs(o.d)) + " נקודות (" + pm(o.se) + ")"; };
+  var chipG = document.getElementById("rama-gender-chip");
+  if (yes.length && no.length) { chipG.className = "chip warn"; chipG.textContent = "נתמך בחלקו"; }
+  else if (yes.length) { chipG.className = "chip ok"; chipG.textContent = "נתמך"; }
+  document.getElementById("rama-gender").textContent = "ראמ\"ה מציינת שהישגי הבנים ירדו יותר מאלה של הבנות. " +
+    (yes.length ? "זה נכון " + yes.map(function (o) { return SUBIN[o.s]; }).join(" ו") + ", שם הפער לטובת הבנות גדל ב־" + yes.map(function (o) { return num(Math.abs(o.d)) + " נקודות (" + pm(o.se) + ")" + (yes.length > 1 ? " " + SUBIN[o.s] : ""); }).join(" וב־") + ", שינוי מובהק. " : "") +
+    (no.length ? (yes.length ? "" : "ההבדל אינו מובהק באף תחום. ") + "השינוי בפער אינו מובהק " + no.map(gtxt).join(", ") + "." : "") +
+    /* by language of the test, from prepare/israelGenderLanguage.R (group means match RAMA 2025, table 1) */
+    " לפי שפת המבחן, הגידול בפער בקריאה הוא כולו אצל דוברי העברית: מ־" + iso("16") + " ל־" + iso("35") + " נקודות לטובת הבנות (שינוי של " + iso("19") + " נקודות, " + iso("±16") + ", מובהק)." +
+    " אצל דוברי הערבית הפער כמעט לא השתנה (" + iso("55") + " ו־" + iso("57") + " נקודות בקריאה). גם ראמ\"ה מתארת כך." +
+    " דוח קרן טראמפ (בנבנישתי, 2024) מצא בפיזה 2022 שבחברה היהודית הבנים מובילים במתמטיקה, ובחברה הערבית הבנות מובילות. ב־2025 הפער לטובת הבנים דוברי העברית במתמטיקה הצטמצם ל־" + iso("8") + " נקודות, והוא אינו מובהק.";
+  var rr = function (s) { var r = X.spread_rank.filter(function (d) { return d.cnt === CNT && d.stat === s + "_spread"; })[0]; return num(Math.round(r.lo)) + " עד " + num(Math.round(r.hi)); };
+  document.getElementById("rama-rank").textContent = "ראמ\"ה מדרגת את ישראל במקום ה־3 מתוך 91 בגודל הפער בין החזקים לחלשים במדעים, במקום ה־3 בקריאה ובמקום ה־8 במתמטיקה. בהתחשב בטעות הדגימה, המקום האפשרי הוא " +
+    rr("Science") + " במדעים, " + rr("Reading") + " בקריאה ו־" + rr("Math") + " במתמטיקה. המסקנה שהפער בישראל מהגדולים בעולם נשארת, אבל מקום מדויק אינו נתמך בנתונים.";
+}
+function drawCards() {
+  var box = document.getElementById("cards"); box.innerHTML = "";
+  ["Reading", "Math", "Science"].forEach(function (sub) {
+    var d = row(sub, CNT), p = peers(sub), c = h("div", "card");
+    c.appendChild(h("span", "sub", SUBNAME[sub]));
+    c.appendChild(h("span", "big", Math.round(d.m)));
+    c.appendChild(h("span", "ch " + (sig(d.ch, d.chse) ? (d.ch < 0 ? "neg" : "pos") : "ns"), sgn(d.ch) + " מאז 2022 (" + pm(d.chse) + ")"));
+    c.appendChild(h("span", "rk", "נמוך מ־" + p.up.length + " מדינות, דומה ל־" + p.sim.length + ", גבוה מ־" + p.dn.length));
+    box.appendChild(c);
+  });
+}
+function drawQ1() {
+  var sub = SUB, d = row(sub, CNT), qb = document.getElementById("q1quotes"); qb.innerHTML = "";
+  var rows = S[sub].filter(function (x) { return x.ch != null; }).sort(function (a, b) { return a.ch - b.ch; });
+  var i = rows.findIndex(function (x) { return x.c === CNT; }) + 1, med = median(rows.map(function (x) { return x.ch; }));
+  var ci = [Math.abs(d.ch) - Z * d.chse, Math.abs(d.ch) + Z * d.chse].map(Math.round);
+  if (sig(d.ch, d.chse)) quote(qb, "ציון ישראל " + SUBIN[sub] + " " + (d.ch < 0 ? "ירד" : "עלה") + " ב־" + num(Math.abs(d.ch)) + " נקודות בין פיזה 2022 לפיזה 2025 (רווח סמך של 95%: " +
+    num(ci[0]) + " עד " + num(ci[1]) + "). זו " + (d.ch < 0 ? "הירידה ה־" + i : "העלייה ה־" + (rows.length - i + 1)) + " בגודלה מבין " + rows.length + " מדינות שיש להן תוצאות בשני המבחנים. השינוי במדינה האמצעית היה " + sgn(med) + " נקודות.");
+  else quote(qb, "ציון ישראל " + SUBIN[sub] + " השתנה ב־" + sgn(d.ch) + " נקודות בין 2022 ל־2025, שינוי שאינו מובהק סטטיסטית (" + pm(d.chse) + ").");
+  var p = peers(sub);
+  quote(qb, SUBIN[sub].charAt(0).toUpperCase() + SUBIN[sub].slice(1) + ", ציון ישראל ב־2025 (" + num(d.m) + ") נמוך באופן מובהק מזה של " + p.up.length + " מדינות וכלכלות, גבוה באופן מובהק מזה של " +
+    p.dn.length + ", ואינו שונה באופן מובהק מזה של " + p.sim.length + (p.sim.length ? ": " + p.sim.slice(0, 5).map(function (x) { return cname(x.c); }).join(", ") : "") + ".");
+  document.getElementById("figA-title").textContent = "השינוי " + SUBIN[sub] + " בין 2022 ל־2025, בכל המדינות";
+  strip(document.getElementById("figA"), rows.map(function (x) { return { v: x.ch, se: x.chse, hi: x.c === CNT, tip: "<b>" + cname(x.c) + "</b><br>" + sgn(x.ch) + " נקודות (" + pm(x.chse) + ")" }; }),
+    { fmt: function (v) { return sgnRaw(v); }, zero: true, ref: med, refLabel: "המדינה האמצעית " + sgn(med), hiLabel: function (x) { return "ישראל " + sgn(x.v); } });
+  document.getElementById("figA-table").replaceChildren(table(rows.map(function (x) { return { hl: x.c === CNT, cells: [cname(x.c), sgn(x.ch), pm(x.chse), Math.round(x.m)] }; }), ["מדינה", "שינוי", "מרווח", "ציון 2025"]));
+  document.getElementById("peer-title").textContent = "מדינות שציונן " + SUBIN[sub] + " דומה לציון ישראל";
+  document.getElementById("peer-text").textContent = "גבוה באופן מובהק: " + p.up.length + ". דומה: " + p.sim.length + ". נמוך באופן מובהק: " + p.dn.length + ".";
+  var pb = document.getElementById("peers"); pb.innerHTML = "";
+  p.sim.forEach(function (x) { pb.appendChild(h("span", null, cname(x.c) + " " + Math.round(x.m))); });
+}
+function dist(y, sub, stat) { var d = yr(y); return d ? d.dist.filter(function (r) { return r.subject === sub && r.stat === stat; })[0] : null; }
+function tileChange(box, title, a, b, badUp) {
+  var t = h("div", "tile"); t.appendChild(h("span", "sub", title));
+  var r = h("div", "row"); r.appendChild(h("span", "from", pc(a.est) + " ←")); r.appendChild(h("span", "to", pc(b.est))); t.appendChild(r);
+  var ch = b.est - a.est, se = Math.sqrt(a.se * a.se + b.se * b.se), bad = badUp ? ch > 0 : ch < 0;
+  t.appendChild(h("span", "delta " + (sig(ch, se) ? (bad ? "neg" : "pos") : "ns"), sgn(ch) + " נקודות אחוז מאז 2022 (" + pm(se) + ")"));
+  box.appendChild(t);
+}
+function drawProf() {
+  var sub = SUB, box = document.getElementById("prof"); box.innerHTML = "";
+  tileChange(box, "מתקשים: מתחת לרמה 2", xs(CNT, 2022, sub + "_below2"), xs(CNT, 2025, sub + "_below2"), true);
+  tileChange(box, "מצטיינים: רמה 5 ומעלה", xs(CNT, 2022, sub + "_level5"), xs(CNT, 2025, sub + "_level5"), false);
+  tileChange(box, "הגיעו לרמת הבסיס בכל שלושת התחומים", xs(CNT, 2022, "all3_base"), xs(CNT, 2025, "all3_base"), false);
+  document.getElementById("figP-title").textContent = "ציוני התלמידים החלשים, האמצעיים והחזקים, " + SUBNAME[sub];
+  var prow = [["p90", "העשירון העליון"], ["p50", "החציון"], ["p10", "העשירון התחתון"]].map(function (k) {
+    var a = dist(2022, sub, k[0]), b = dist(2025, sub, k[0]), ch = b.est - a.est, se = Math.sqrt(a.se * a.se + b.se * b.se + LE[sub] * LE[sub]);
+    return { label: k[1], a: a.est, b: b.est, note: sgnRaw(ch) + " (±" + Math.round(Z * se) + ")", noteStrong: sig(ch, se), ch: ch, se: se,
+      tip: "<b>" + k[1] + "</b><br>2022: " + Math.round(a.est) + "<br>2025: " + Math.round(b.est) + "<br>שינוי " + sgn(ch) + " (" + pm(se) + ")" };
+  });
+  dumbbell(document.getElementById("figP"), prow, { fmt: function (v) { return v; }, L: 150 });
+  var qb = document.getElementById("profquotes"); qb.innerHTML = "";
+  var b2 = xs(CNT, 2025, sub + "_below2"), b22 = xs(CNT, 2022, sub + "_below2"), l5 = xs(CNT, 2025, sub + "_level5"), l522 = xs(CNT, 2022, sub + "_level5");
+  quote(qb, SUBIN[sub] + ", " + pc(b2.est) + " מהתלמידים בישראל היו מתחת לרמת הבסיס (רמה 2) בפיזה 2025, לעומת " + pc(b22.est) + " ב־2022. שיעור המצטיינים (רמה 5 ומעלה) היה " + pc(l5.est) + ", לעומת " + pc(l522.est) + " ב־2022.");
+  var a3 = xs(CNT, 2025, "all3_base"), a322 = xs(CNT, 2022, "all3_base"), n3 = xs(CNT, 2025, "all3_below");
+  quote(qb, pc(a3.est) + " מהתלמידים בישראל הגיעו לפחות לרמה 2 בכל שלושת התחומים בפיזה 2025, לעומת " + pc(a322.est) + " ב־2022. " + pc(n3.est) + " היו מתחת לרמה 2 בכל השלושה.");
+  var mv = function (o) { return (Math.round(o.ch) < 0 ? "ירד" : Math.round(o.ch) > 0 ? "עלה" : "השתנה") + " ב־" + num(Math.abs(o.ch)) + " נקודות (" + pm(o.se) + ")"; };
+  quote(qb, "בין 2022 ל־2025, העשירון התחתון " + mv(prow[2]) + " והעשירון העליון " + mv(prow[0]) + ".");
+  drawSpread();
+}
+function drawSpread() {
+  var st = SUB + "_spread";
+  var rows = X.stats.filter(function (d) { return d.year === 2025 && d.stat === st; }).sort(function (a, b) { return b.est - a.est; });
+  var rk = X.spread_rank.filter(function (d) { return d.cnt === CNT && d.stat === st; })[0];
+  var med = median(rows.map(function (d) { return d.est; })), me = rows.filter(function (d) { return d.cnt === CNT; })[0];
+  var lo = Math.round(rk.lo), hi = Math.round(rk.hi);
+  document.getElementById("figG-title").textContent = "הפער בין העשירון העליון לתחתון, " + SUBNAME[SUB] + ", בכל המדינות";
+  strip(document.getElementById("figG"), rows.map(function (d) { return { v: d.est, se: d.se, hi: d.cnt === CNT, tip: "<b>" + cname(d.cnt) + "</b><br>" + num(d.est) + " נקודות (" + pm(d.se) + ")" }; }),
+    { W: 760, rh: 6, fmt: function (v) { return v; }, ref: med, refLabel: "המדינה האמצעית " + Math.round(med), refLeft: me.est > med,
+      hiLabel: function (d) { return "ישראל " + num(d.v) + ", מקום " + num(lo) + " עד " + num(hi); } });
+  document.getElementById("figG-table").replaceChildren(table(rows.map(function (d) { return { hl: d.cnt === CNT, cells: [cname(d.cnt), Math.round(d.est), pm(d.se)] }; }), ["מדינה", "פער (נקודות)", "מרווח"]));
+  quote(document.getElementById("profquotes"), SUBIN[SUB] + ", הפער בין העשירון העליון לתחתון בישראל הוא " + num(me.est) + " נקודות (" + pm(me.se) + "). מבין " + rk.n +
+    " מדינות וכלכלות, הוא בין הפערים הגדולים ביותר: במקום " + num(lo) + " עד " + num(hi) + ". הפער במדינה האמצעית הוא " + num(med) + " נקודות.");
+}
+
+/* ---------- section 2 ---------- */
+function fillDims() {
+  var box = document.getElementById("dims"); box.innerHTML = "";
+  var pref = ["design", "lang", "gender", "escs_all", "immig", "school_type", "location", "region"];
+  var dims = dimsOf().filter(function (d) { return pref.indexOf(d) >= 0; }).sort(function (a, b) { return pref.indexOf(a) - pref.indexOf(b); });
+  if (dims.indexOf(DIM) < 0) DIM = dims[0];
+  dims.forEach(function (d) { var b = h("button", null, DIMLAB[d]); b.type = "button"; b.setAttribute("aria-pressed", d === DIM ? "true" : "false");
+    b.addEventListener("click", function () { DIM = d; fillDims(); drawGroups(); }); box.appendChild(b); });
+  var s = document.getElementById("idim"), keep = s.value; s.innerHTML = "";
+  dims.forEach(function (d) { var o = document.createElement("option"); o.value = d; o.textContent = DIMLAB[d]; s.appendChild(o); });
+  s.value = dims.indexOf(keep) >= 0 ? keep : dims[0];
+}
+function drawGroups() {
+  var sub = SUB, dim = DIM, gs = sortedGroups(dim);
+  document.getElementById("dim-note").textContent = DIMNOTE[dim] || "";
+  document.getElementById("figL-title").textContent = "הציון הממוצע " + SUBIN[sub] + " " + DIMIN[dim] + ", 2022 ו־2025";
+  var rows = [], trows = [], ok2 = [];
+  gs.forEach(function (g) {
+    var b = grp(2025, dim, g, sub), a = grp(2022, dim, g, sub), G = gl(g);
+    if (!reportable(b)) { rows.push({ label: G, na: "מעט מדי לדיווח" }); trows.push({ cells: [G, b ? b.n.toLocaleString("he-IL") : "", b ? b.schools : "", b ? pc(b.pop) : "", { t: "—", cls: "ns" }, { t: "—", cls: "ns" }, { t: "—", cls: "ns" }] }); return; }
+    var hasA = reportable(a), ch = hasA ? b.mean - a.mean : null, se = hasA ? Math.sqrt(a.se * a.se + b.se * b.se + LE[sub] * LE[sub]) : null;
+    if (hasA) ok2.push({ g: G, ch: ch, se: se });
+    rows.push({ label: G, strong: true, a: hasA ? a.mean : null, b: b.mean, note: hasA ? sgnRaw(ch) + " (±" + Math.round(Z * se) + ")" : Math.round(b.mean) + " ±" + Math.round(Z * b.se) + ", 2025",
+      noteStrong: hasA && sig(ch, se), tip: "<b>" + G + "</b><br>2022: " + (hasA ? Math.round(a.mean) : "אין נתון") + "<br>2025: " + Math.round(b.mean) + " (" + b.n.toLocaleString("he-IL") + " תלמידים)" });
+    trows.push({ cells: [G, b.n.toLocaleString("he-IL"), b.schools, pc(b.pop), num(b.mean) + " " + pm(b.se), pc(b.below2) + " " + pm(b.below2_se),
+      hasA ? { t: sgn(ch) + " " + pm(se), cls: sig(ch, se) ? (ch < 0 ? "neg" : "pos") : "ns" } : { t: "רק 2025", cls: "ns" }] });
+  });
+  dumbbell(document.getElementById("figL"), rows, { fmt: function (v) { return v; }, L: 170 });
+  document.getElementById("group-table").replaceChildren(table(trows, [DIMLAB[dim] + ", " + SUBNAME[sub] + " 2025", "תלמידים", "בתי ספר", "שיעור באוכלוסייה", "ממוצע", "מתחת לרמה 2", "שינוי מאז 2022"]));
+  var qb = document.getElementById("groupquotes"); qb.innerHTML = "";
+  if (ok2.length > 3) {
+    var srt = ok2.slice().sort(function (a, b) { return a.ch - b.ch; }), l = srt[0], u = srt[srt.length - 1];
+    var dd = u.ch - l.ch, ds = Math.sqrt(u.se * u.se + l.se * l.se), zc = zcrit(0.025 / (ok2.length * (ok2.length - 1) / 2));
+    quote(qb, "השינוי " + SUBIN[sub] + " בין 2022 ל־2025 " + DIMIN[dim] + " נע בין " + sgn(l.ch) + " נקודות (" + pm(l.se) + ") בקבוצה " + l.g + " לבין " + sgn(u.ch) + " נקודות (" + pm(u.se) + ") בקבוצה " + u.g + ". " +
+      (Math.abs(dd) > zc * ds ? "ההבדל בין השתיים מובהק סטטיסטית, גם בהתחשב במספר הקבוצות שהושוו." : "בהתחשב במספר הקבוצות שהושוו, גם ההבדל בין השתיים אינו מובהק סטטיסטית."));
+  } else if (ok2.length) {
+    quote(qb, "השינוי " + SUBIN[sub] + " בין 2022 ל־2025 " + DIMIN[dim] + ": " + ok2.map(function (o) { return o.g + " " + sgn(o.ch) + " נקודות (" + pm(o.se) + ")"; }).join(", ") + "." +
+      (ok2.length === 2 ? (function () { var d = ok2[0].ch - ok2[1].ch, s = Math.sqrt(Math.max(0, ok2[0].se * ok2[0].se + ok2[1].se * ok2[1].se - 2 * LE[sub] * LE[sub]));
+        if (dim === "gender") { var r = row(sub, CNT); d = r.g - r.g22; s = Math.sqrt(r.gse * r.gse + r.gse22 * r.gse22); }
+        return sig(d, s) ? " ההבדל בין שני השינויים מובהק סטטיסטית." : " ההבדל בין שני השינויים אינו מובהק סטטיסטית, ולכן הנתונים אינם מראים שקבוצה אחת השתנתה יותר."; })() : ""));
+  }
+  var rep = gs.map(function (g) { return grp(2025, dim, g, sub); }).filter(reportable);
+  if (rep.length >= 2) {
+    var srt2 = rep.slice().sort(function (a, b) { return b.mean - a.mean; }), low = srt2[srt2.length - 1], top = srt2[0];
+    quote(qb, "מתחת לרמה 2 " + SUBIN[sub] + ", פיזה 2025: " + pc(low.below2) + " (" + pm(low.below2_se) + ") בקבוצה עם הממוצע הנמוך ביותר (" + gl(low.group) + "), לעומת " +
+      pc(top.below2) + " (" + pm(top.below2_se) + ") בקבוצה עם הממוצע הגבוה ביותר (" + gl(top.group) + ").");
+  }
+}
+function drawEscs() {
+  var sub = SUB, c25 = cov(2025), c22 = cov(2022), chip = document.getElementById("escs-chip");
+  chip.className = "chip warn"; chip.textContent = "נתמך, אבל בדקו את מי סופרים";
+  document.getElementById("escs-text").textContent = "הדוח הלאומי משווה בין קבוצות רקע רק בקרב תלמידים שיש להם נתוני רקע. ב־2025 ל־" + Math.round(c25.noescs) + "% מהנבחנים בישראל אין נתונים כאלה (" +
+    Math.round(c22.noescs) + "% ב־2022), והציונים שלהם נמוכים בהרבה. הכללתם משנה את התמונה, ולכן מוצגות שתי הגרסאות.";
+  document.getElementById("figC-title").textContent = "השינוי " + SUBIN[sub] + " בין 2022 ל־2025, לפי שליש של רקע משפחתי";
+  var svg = document.getElementById("figC"); svg.innerHTML = "";
+  var data = ["Lowest third", "Middle third", "Highest third"].map(function (t) {
+    var f = function (dim) { var a = grp(2022, dim, t, sub), b = grp(2025, dim, t, sub); if (!a || !b) return null; return [b.mean - a.mean, Z * Math.sqrt(a.se * a.se + b.se * b.se + LE[sub] * LE[sub])]; };
+    return [gl(t), f("escs_data"), f("escs_all")]; });
+  var vals = []; data.forEach(function (r) { [r[1], r[2]].forEach(function (v) { if (v) vals.push(v[0] - v[1], v[0] + v[1]); }); });
+  var W = 560, L = 120, R = 16, T = 8, rh = 44, H = T + 3 * rh + 24;
+  svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+  var lo = Math.floor(Math.min(0, Math.min.apply(null, vals)) / 10) * 10, hi = Math.ceil(Math.max(0, Math.max.apply(null, vals)) / 10) * 10;
+  var x = function (v) { return L + (v - lo) / (hi - lo) * (W - L - R); };
+  ticks(lo, hi, niceStep(hi - lo)).forEach(function (v) { el("line", { x1: x(v), x2: x(v), y1: T, y2: H - 20, "class": v === 0 ? "zero" : "grid" }, svg); el("text", { x: x(v), y: H - 5, "text-anchor": "middle" }, svg, sgnRaw(v)); });
+  var hov = [];
+  data.forEach(function (r, j) {
+    var y = T + j * rh + rh / 2;
+    el("text", { x: L - 10, y: y + 4, "text-anchor": "end", "class": "lab" }, svg, r[0]);
+    if (r[1]) { el("line", { x1: x(r[1][0] - r[1][1]), x2: x(r[1][0] + r[1][1]), y1: y - 8, y2: y - 8, "class": "ci" }, svg); el("circle", { cx: x(r[1][0]), cy: y - 8, r: 5.5, "class": "hollow" }, svg); }
+    if (r[2]) { el("line", { x1: x(r[2][0] - r[2][1]), x2: x(r[2][0] + r[2][1]), y1: y + 8, y2: y + 8, "class": "hi-ci" }, svg); el("circle", { cx: x(r[2][0]), cy: y + 8, r: 5.5, "class": "hi-pt" }, svg); }
+    hov.push({ y0: y - rh / 2, y1: y + rh / 2, html: "<b>" + r[0] + "</b><br>רק עם נתוני רקע: " + (r[1] ? sgn(r[1][0]) + " (" + iso("±" + Math.round(r[1][1])) + ")" : "אין נתון") + "<br>כל התלמידים: " + (r[2] ? sgn(r[2][0]) + " (" + iso("±" + Math.round(r[2][1])) + ")" : "אין נתון") });
+  });
+  hoverRows(svg, hov, W);
+}
+
+/* ---------- section 3: items ---------- */
+var ITXT = { staff_lack: "מחסור בצוות הוראה פוגע בהוראה (במידה מסוימת או רבה)", staff_qual: "צוות הוראה לא מתאים או לא מוכשר פוגע בהוראה (במידה מסוימת או רבה)",
+  material: "מחסור בחומרי לימוד פוגע בהוראה (במידה מסוימת או רבה)", class_size: "בכיתה ממוצעת בשכבה יותר מ־30 תלמידים",
+  grouping: "התלמידים מקובצים לכיתות לפי רמה (בחלק מהמקצועות או בכולם)", phone_ban: "אסור להשתמש בטלפון נייד בשטח בית הספר",
+  chess: "בית הספר מציע חוג שחמט", abuse: "הפחדה או התעללות מילולית בין תלמידים היא בעיה (במידה בינונית או רבה)",
+  skip_day: "הבריז מיום לימודים שלם בשבועיים האחרונים", late: "איחר לבית הספר בשבועיים האחרונים", work_pay: "עובד בשכר אחרי הלימודים לפחות יום אחד בשבוע",
+  screen_school: "משתמש במכשירים דיגיטליים לפנאי בבית הספר יותר משעה ביום", mocked: "תלמידים אחרים צחקו עליו (כמה פעמים בחודש או יותר)",
+  hit: "תלמידים אחרים היכו או דחפו אותו (כמה פעמים בשנה או יותר)", unsafe: "לא מרגיש בטוח בכיתות בבית הספר", lonely: "מרגיש בודד בבית הספר",
+  waste: "מסכים שבית הספר היה בזבוז זמן", online_pressure: "מרגיש לחץ להיות מחובר ולענות להודעות בשיעור (יותר ממחצית הזמן)", low_effort: "דירג את המאמץ שלו במבחן פיזה 5 או פחות מתוך 10" };
+var QTXT = { staff_lack: "מחסור בצוות הוראה פוגע בהוראה", staff_qual: "צוות הוראה לא מתאים או לא מוכשר פוגע בהוראה", material: "מחסור בחומרי לימוד פוגע בהוראה",
+  class_size: "בכיתה ממוצעת בשכבה יש יותר מ־30 תלמידים", grouping: "התלמידים מקובצים לכיתות לפי רמה", phone_ban: "אסור להשתמש בטלפון נייד בשטח בית הספר",
+  chess: "בית הספר מציע חוג שחמט", abuse: "הפחדה או התעללות מילולית בין תלמידים היא בעיה",
+  skip_day: "הבריזו מיום לימודים שלם בשבועיים שלפני המבחן", late: "איחרו לבית הספר בשבועיים שלפני המבחן", work_pay: "עובדים בשכר אחרי הלימודים לפחות יום אחד בשבוע",
+  screen_school: "משתמשים במכשירים דיגיטליים לפנאי בבית הספר יותר משעה ביום", mocked: "מדווחים שתלמידים אחרים צחקו עליהם כמה פעמים בחודש או יותר",
+  hit: "מדווחים שתלמידים אחרים היכו או דחפו אותם לפחות כמה פעמים בשנה", unsafe: "אינם מרגישים בטוחים בכיתות", lonely: "מרגישים בודדים בבית הספר",
+  waste: "מסכימים שבית הספר היה בזבוז זמן", online_pressure: "מרגישים לחץ להיות מחוברים ולענות להודעות בשיעור יותר ממחצית הזמן", low_effort: "דירגו את המאמץ שלהם במבחן 5 או פחות מתוך 10" };
+var TOPIC = { "Teachers and resources": "מורים ומשאבים", "School organisation": "ארגון בית הספר", "Safety and well-being": "ביטחון ורווחה", "Attendance and work": "נוכחות ועבודה", "Attitudes to school": "עמדות כלפי בית הספר" };
+var ITEM = {}; Q.items.forEach(function (d) { ITEM[d.id] = d; });
+function qc(id, c, y) { return Q.countries.filter(function (d) { return d.item === id && d.cnt === c && d.year === y && d.p != null; })[0]; }
+function oecdRow(id, year) { return Q.oecd.filter(function (d) { return d.item === id && d.year === year; })[0]; }
+function igrp(y, id, dim, g) { var d = yr(y); return d && d.items ? d.items.filter(function (r) { return r.item === id && r.dim === dim && r.group === g; })[0] : null; }
+function fillSelect() {
+  var s = document.getElementById("item"), topics = {};
+  Q.items.forEach(function (d) { (topics[d.topic] = topics[d.topic] || []).push(d); });
+  Object.keys(topics).forEach(function (t) { var og = document.createElement("optgroup"); og.label = TOPIC[t] || t;
+    topics[t].forEach(function (d) { var o = document.createElement("option"); o.value = d.id; o.textContent = ITXT[d.id] || d.text; og.appendChild(o); }); s.appendChild(og); });
+  s.value = "staff_lack"; s.addEventListener("change", drawItem); document.getElementById("idim").addEventListener("change", drawItem);
+}
+function drawItem() {
+  var id = document.getElementById("item").value, it = ITEM[id];
+  var rows = Q.countries.filter(function (d) { return d.item === id && d.year === 2025 && d.p != null; }).sort(function (a, b) { return b.p - a.p; });
+  var me = qc(id, CNT, 2025), me22 = qc(id, CNT, 2022), oe = oecdRow(id, 2025), oe22 = oecdRow(id, 2022);
+  var meta = document.getElementById("item-meta"); meta.innerHTML = "";
+  var qb = document.getElementById("itemquotes"); qb.innerHTML = "";
+  meta.appendChild(h("span", null, it.who === "Principal" ? "ענו מנהלים. מוצג כשיעור התלמידים בבתי הספר שלהם" : "ענו תלמידים"));
+  meta.appendChild(h("span", null, "שאלה " + it["var"] + ", ניסוח זהה ב־2022 וב־2025"));
+  if (it.kind === "attitude") meta.appendChild(h("span", "warnm", "רגש או עמדה: סגנונות התשובה שונים בין תרבויות. השוו בין מדינות בזהירות"));
+  meta.appendChild(h("span", null, "ישראל: ל־" + me.answered + "% מהנבחנים יש תשובה"));
+  if (me.answered < 70) meta.appendChild(h("span", "warnm", "לתלמידים רבים אין תשובה. בדקו מי חסר"));
+  var up = 0, dn = 0, sm = 0;
+  rows.forEach(function (d) { if (d.cnt === CNT) return; var df = d.p - me.p, se = Math.sqrt(d.se * d.se + me.se * me.se); if (df > Z * se) up++; else if (df < -Z * se) dn++; else sm++; });
+  var dOe = me.p - oe.p, seOe = Math.sqrt(me.se * me.se + oe.se * oe.se);
+  var cmp = sig(dOe, seOe) ? (dOe > 0 ? "גבוה מממוצע ה־OECD, " : "נמוך מממוצע ה־OECD, ") + pc(oe.p) : "אינו שונה באופן מובהק מממוצע ה־OECD, " + pc(oe.p);
+  var subj = it.who === "Principal" ? "מהתלמידים בישראל לומדים בבתי ספר שהמנהל שלהם מדווח ש" : "מהתלמידים בישראל ";
+  var where = up === 0 ? " באף מדינה השיעור אינו גבוה באופן מובהק. הוא נמוך יותר ב־" + dn + " מדינות ודומה ב־" + sm + "." : " השיעור גבוה באופן מובהק ב־" + up + " מדינות, נמוך ב־" + dn + " ודומה ב־" + sm + ".";
+  quote(qb, "בפיזה 2025, " + pc(me.p) + " (" + pm(me.se) + ") " + subj + QTXT[id] + ". השיעור " + cmp + "." + where);
+  if (me22) { var ch = me.p - me22.p, cse = Math.sqrt(me.se * me.se + me22.se * me22.se);
+    quote(qb, "ב־2022 השיעור היה " + pc(me22.p) + ". " + (sig(ch, cse) ? "השינוי של " + sgn(ch) + " נקודות אחוז (" + pm(cse) + ") מובהק סטטיסטית." : "השינוי מאז (" + sgn(ch) + " נקודות אחוז, " + pm(cse) + ") אינו מובהק סטטיסטית.")); }
+  else meta.appendChild(h("span", "warnm", "ישראל לא שאלה שאלה זו ב־2022"));
+  strip(document.getElementById("figI"), rows.map(function (d) { return { v: d.p, se: d.se, hi: d.cnt === CNT, tip: "<b>" + cname(d.cnt) + "</b><br>" + pc(d.p) + " (" + pm(d.se) + ")<br>ענו: " + pc(d.answered) }; }),
+    { W: 400, rh: 6, lo: 0, fmt: function (v) { return v + "%"; }, ref: oe.p, refLabel: "OECD " + pc(oe.p), refLeft: oe.p > 50, hiLabel: function (d) { return "ישראל " + pc(d.v); } });
+  document.getElementById("figI-table").replaceChildren(table(rows.map(function (d) { return { hl: d.cnt === CNT, cells: [cname(d.cnt), pc(d.p), pm(d.se), pc(d.answered)] }; }), ["מדינה", "שיעור", "מרווח", "ענו"]));
+  var t = function (label, a, b, strong) { var ok = a && b, c = ok ? b.p - a.p : null, cs = ok ? Math.sqrt(a.se * a.se + b.se * b.se) : null;
+    return { label: label, strong: strong, a: a ? a.p : null, b: b ? b.p : null, note: ok ? sgnRaw(c) + " (±" + Math.round(Z * cs) + ")" : "רק 2025", noteStrong: ok && sig(c, cs),
+      tip: "<b>" + label + "</b><br>2022: " + (a ? pc(a.p) : "אין נתון") + "<br>2025: " + (b ? pc(b.p) : "אין נתון") }; };
+  dumbbell(document.getElementById("figT"), [t("ישראל", me22, me, true), t("ממוצע OECD", oe22, oe, false)], { lo: 0, hi: 100, fmt: function (v) { return v + "%"; }, W: 380, L: 100, R: 78 });
+  var dim = document.getElementById("idim").value;
+  document.getElementById("figS-title").textContent = DIMIN[dim].replace("לפי", "לפי") + ", 2025";
+  var gs = sortedGroups(dim);
+  drawGroupItems(document.getElementById("figS"), [{ v: me.p, se: me.se, label: "כל ישראל", strong: true }].concat(gs.map(function (g) { return { d: igrp(2025, id, dim, g), label: gl(g) }; })));
+}
+function drawGroupItems(svg, rows) {
+  svg.innerHTML = "";
+  var W = 380, L = 130, R = 64, T = 6, rh = 26, H = T + rows.length * rh + 24;
+  svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+  var x = function (v) { return L + v / 100 * (W - L - R); };
+  ticks(0, 100, 25).forEach(function (v) { el("line", { x1: x(v), x2: x(v), y1: T, y2: H - 20, "class": "grid" }, svg); el("text", { x: x(v), y: H - 5, "text-anchor": "middle" }, svg, v + "%"); });
+  var hov = [];
+  rows.forEach(function (r, j) {
+    var y = T + j * rh + rh / 2, d = r.d, v = r.strong ? r.v : d && d.p, se = r.strong ? r.se : d && d.se;
+    var ok = r.strong ? v != null : d && d.p != null && d.n >= 30 && d.schools >= 5;
+    el("text", { x: L - 10, y: y + 4, "text-anchor": "end", "class": r.strong ? "lab" : "" }, svg, r.label);
+    if (!ok) { el("text", { x: x(0) + 4, y: y + 4 }, svg, "מעט מדי לדיווח"); hov.push({ y0: y - rh / 2, y1: y + rh / 2, html: "<b>" + r.label + "</b><br>ענו פחות מ־30 תלמידים או 5 בתי ספר" }); return; }
+    el("line", { x1: x(Math.max(0, v - Z * se)), x2: x(Math.min(100, v + Z * se)), y1: y, y2: y, "class": r.strong ? "hi-ci" : "ci" }, svg);
+    el("circle", { cx: x(v), cy: y, r: r.strong ? 6 : 4.5, "class": r.strong ? "hi-pt" : "pt" }, svg);
+    el("text", { x: W - R + 10, y: y + 4, "class": r.strong ? "lab" : "" }, svg, Math.round(v) + "% ±" + Math.round(Z * se));
+    hov.push({ y0: y - rh / 2, y1: y + rh / 2, html: "<b>" + r.label + "</b><br>" + pc(v) + " (" + pm(se) + ")" + (d ? "<br>ענו " + d.n + " תלמידים" : "") });
+  });
+  hoverRows(svg, hov, W);
+}
+
+/* ---------- wiring ---------- */
+function setSubject(sub) {
+  SUB = sub;
+  document.querySelectorAll("[data-sub]").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-sub") === sub ? "true" : "false"); });
+  drawQ1(); drawProf(); drawGroups(); drawEscs();
+}
+document.querySelectorAll("[data-sub]").forEach(function (b) { b.addEventListener("click", function () { setSubject(b.getAttribute("data-sub")); }); });
+drawHeader(); drawDiff(); drawCards(); fillDims(); fillSelect(); setSubject("Reading"); drawItem();
+</script>
+</body>
+</html>
