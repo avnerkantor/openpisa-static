@@ -197,6 +197,20 @@ details[open] summary{margin-bottom:8px}
     <p class="note">Mean scores (reading 490, mathematics 463, science 502) and the change since 2022 (reading down 14 points, significant; mathematics and science not significantly different), the number of education systems scoring higher, similar and lower, the shares of low and top performers, the 90th-to-10th percentile gap in reading (312 points), and the gender gap: in mathematics it widened from 13 to 24 points in favour of boys, a significant change, while in reading and science it did not change significantly. NCES compares with 89 other education systems, including Cyprus, which is not in the public file.</p>
   </section>
 
+  <section aria-labelledby="qlv" class="official hidden" id="lva">
+    <div class="qhead"><h2 id="qlv">Latvia: what changed, and for whom</h2></div>
+    <p>Latvia's national presentation of the results (University of Latvia, 8 September 2026) was not accessible to us, so this section compares with the OECD's <a href="https://www.oecd.org/en/publications/pisa-2025-results-volume-i-country-notes_2d4ff9ea-en/latvia_eea74d60-en.html">country note for Latvia</a> and adds an analysis of the public data.</p>
+    <div class="callout"><b>The language of the test changed</b>
+      <p>Between 2023 and 2025 Latvia completed a transition to Latvian as the sole language of instruction in compulsory education, and "starting with 2023, all centralized tests (including PISA) were held in Latvian for all students". "In 2022, some 28% of students had taken the PISA test in Russian" (OECD country note). Changes since 2022 therefore mix two things: what students learned, and the language in which they were tested.</p></div>
+    <div class="steps">
+      <div class="step"><span class="chip warn">Read with the test language in mind</span><b class="stitle">Where the decline is concentrated</b><p class="note">Change since 2022 for students who speak Latvian at home: reading −20 points (±7), mathematics −12 (±6), science −3 (±8, not significant). For students who speak another language at home, mostly Russian: reading −95 (±10), mathematics −43 (±9), science −69 (±11). In 2022 most of these students were tested in Russian, in 2025 in Latvian. Part of their drop may reflect taking the test in a second language rather than a loss of knowledge, and the data cannot separate the two. "Latvian at home" means tested in Latvian and speaking the test language at home, a definition that is comparable across the two cycles. An independent analysis of the same public data (J. Ošlejs, nra.lv, September 2026) reports the same 2025 results for students who speak Latvian at home.</p></div>
+      <div class="step"><span class="chip ok">Agrees with the OECD</span><b class="stitle">The gap between strong and weak students widened</b><p class="note" id="lva-spread"></p></div>
+      <div class="step"><span class="chip warn">Depends on who is counted</span><b class="stitle">Advantaged and disadvantaged students</b><p class="note" id="lva-escs"></p></div>
+    </div>
+    <h3>Where the results are the same</h3>
+    <p class="note">Mean scores fell in all three subjects and were "the lowest ever observed in PISA in Latvia", and the shares of low and top performers match the OECD's tables. The OECD states that "in Latvia, all data met the quality standards set by PISA".</p>
+  </section>
+
   <section aria-labelledby="q0" class="official hidden" id="rama">
     <div class="qhead"><h2 id="q0">Compared with Israel's national report (RAMA)</h2></div>
     <p>RAMA's report on PISA 2025 (September 2026) is Israel's official publication. We checked its main findings against the analysis on this page. Most numbers are the same. In a few places, this analysis leads to a different conclusion.</p>
@@ -556,6 +570,20 @@ function drawChecks() {
     " in science. A single place overstates how precisely it is known.";
 }
 
+/* ---------- Latvia ---------- */
+function drawLva() {
+  var subs = ["Reading", "Math", "Science"];
+  var sp = subs.map(function (s) { var a = xs(CNT, 2022, s + "_spread"), b = xs(CNT, 2025, s + "_spread"), d = b.est - a.est, se = Math.sqrt(a.se * a.se + b.se * b.se);
+    return SUBNAME[s] + " from " + Math.round(a.est) + " to " + Math.round(b.est) + " points (" + sgn(d) + ", ±" + mg(se) + (sig(d, se) ? "" : ", not significant") + ")"; });
+  document.getElementById("lva-spread").textContent = "The OECD reports that between 2022 and 2025 the gap between the 10% highest- and lowest-scoring students \"widened in mathematics, reading and science\". The data agree: the gap grew in " + sp.join(", ") + ".";
+  var ch = function (dim, t) { var a = grp(2022, dim, t, "Science"), b = grp(2025, dim, t, "Science"); return { ch: b.mean - a.mean, se: Math.sqrt(a.se * a.se + b.se * b.se + LE.Science * LE.Science) }; };
+  var f = function (o) { return sgn(o.ch) + " (±" + mg(o.se) + ")"; };
+  var c25 = cov(2025), c22 = cov(2022);
+  document.getElementById("lva-escs").textContent = "The OECD reports that between 2015 and 2025 science \"performance declined to a similar extent among advantaged and disadvantaged students\" (top and bottom quarters of the background index). For the recent period, 2022 to 2025, it depends on who is counted. Students without background data rose from " +
+    Math.round(c22.noescs) + "% to " + Math.round(c25.noescs) + "%. Counting only students with data, science changed by " + f(ch("escs_data", "Lowest third")) + " in the lowest background third and " + f(ch("escs_data", "Highest third")) +
+    " in the highest, so the decline in the lowest third is smaller and only borderline. Counting all students, both thirds fell clearly: " + f(ch("escs_all", "Lowest third")) + " and " + f(ch("escs_all", "Highest third")) + ". Claims about which group fell more should use all students. The difference between the two declines has not been tested here.";
+}
+
 /* ---------- United States: comparison with NCES ---------- */
 var QWARN = { USA: "In the United States, more than 40% of students did not receive the student questionnaire, including all students in 9 of the 50 states. The OECD recommends limited reporting of these results." };
 function drawNces() {
@@ -882,6 +910,7 @@ function loadCountry(c) {
     document.getElementById("rama").classList.toggle("hidden", CNT !== "ISR");
     document.getElementById("checks").classList.toggle("hidden", CNT === "ISR" || CNT === "USA");
     document.getElementById("nces").classList.toggle("hidden", CNT !== "USA");
+    document.getElementById("lva").classList.toggle("hidden", CNT !== "LVA"); if (CNT === "LVA") drawLva();
     drawHeader(); if (CNT === "ISR") drawRama(); else if (CNT === "USA") drawNces(); else drawChecks(); drawCards(); fillDims(); drawSubject(); drawItem();
   }).catch(function (e) { document.getElementById("page").classList.remove("loading"); document.getElementById("h1").textContent = "Could not load " + cname(c) + " (" + e.message + ")"; });
 }
