@@ -148,6 +148,8 @@ th:first-child,td:first-child{text-align:right}
 .topnav a:hover{text-decoration:underline}
 .beta{font-size:13px;color:var(--muted)}
 .tip{direction:rtl;text-align:right}
+.official .step{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.official .stitle{font-family:var(--body);font-size:16px}
 </style>
 </head>
 <body>
@@ -170,6 +172,17 @@ th:first-child,td:first-child{text-align:right}
   </div>
 
   <div class="coverage" id="coverage" aria-label="את מי התוצאות מייצגות"></div>
+
+  <section aria-labelledby="q0" class="official">
+    <div class="qhead"><h2 id="q0">במה העמוד הזה שונה מהפרסומים הרשמיים</h2></div>
+    <div class="steps">
+      <div class="step"><span class="chip warn">תמונה שונה</span><b class="stitle">רקע משפחתי</b><p class="note" id="diff-escs"></p></div>
+      <div class="step"><span class="chip ok">תוספת</span><b class="stitle">מרווח טעות לכל מספר</b><p class="note">בפרסומים הרשמיים טעויות התקן מופיעות בטבלאות. כאן כל משפט מוכן לציטוט כולל את מרווח הטעות, ובמקום דירוג יחיד מוצגות המדינות שההבדל מהן אינו מובהק.</p></div>
+      <div class="step"><span class="chip bad">תוספת</span><b class="stitle">מה הנתונים ממעיטים בו</b><p class="note">הקבצים הרשמיים אינם מציינים שהבדלים בהשפעה בין קבוצות מוצגים בהם קטנים מכפי שהם. כאן הם מסומנים, עם תוצאות סימולציה.</p></div>
+      <div class="step"><span class="chip bad">השמטה מכוונת</span><b class="stitle">בלי הסברים סיבתיים</b><p class="note">העמוד אינו מציג קשר בין תשובות בשאלון לציונים, כי קשר כזה משקף בעיקר הבדלים אחרים בין התלמידים. במקום זה הוא בודק אם ההנחה שמאחורי הסבר השתנתה.</p></div>
+    </div>
+    <p class="note"><b>מה זהה:</b> הממוצעים, השיעורים וטעויות התקן חושבו מאותם קבצים ובאותה שיטה של ה־OECD. טעויות התקן של הממוצעים הלאומיים נבדקו מול הדוח הטכני של פיזה 2025 ותואמות לכל המדינות. <b>מה חסר כאן:</b> מגמה לפי מגזר. הקובץ הציבורי של 2022 אינו מזהה מגזר, ולכן רק הדוח הלאומי יכול לחשב אותה.</p>
+  </section>
 
   <!-- HOW MUCH -->
   <section aria-labelledby="q1">
@@ -469,6 +482,14 @@ function drawHeader() {
   if (C.coverage15 != null) tile("כ־" + Math.round(100 - C.coverage15) + "%", "מבני ה־15 לא נכללו במדגם. רובם בנים חרדים, שבתי הספר שלהם כמעט לא השתתפו.");
   tile(Math.round(c25.noescs) + "%", "מהנבחנים חסרים נתוני רקע משפחתי, לעומת " + pc(c22.noescs) + " ב־2022");
 }
+function drawDiff() {
+  var c25 = cov(2025), c22 = cov(2022), f = function (dim) { var a = grp(2022, dim, "Lowest third", "Science"), b = grp(2025, dim, "Lowest third", "Science");
+    return { ch: b.mean - a.mean, se: Math.sqrt(a.se * a.se + b.se * b.se + LE.Science * LE.Science) }; };
+  var A = f("escs_data"), D = f("escs_all");
+  var say = function (o) { return sig(o.ch, o.se) ? (o.ch < 0 ? "ירד ב־" : "עלה ב־") + num(Math.abs(o.ch)) + " נקודות (" + pm(o.se) + ")" : "לא השתנה באופן מובהק (" + sgn(o.ch) + ", " + pm(o.se) + ")"; };
+  document.getElementById("diff-escs").textContent = "הדוח הלאומי משווה בין קבוצות רקע רק בקרב תלמידים שיש להם נתוני רקע. ב־2025 חסרים נתונים כאלה ל־" + pc(c25.noescs) +
+    " מהנבחנים (" + pc(c22.noescs) + " ב־2022), והציונים שלהם נמוכים בהרבה. בשיטה הזו, ציון השליש התחתון במדעים " + say(A) + ". כשכוללים את כל התלמידים, הוא " + say(D) + ".";
+}
 function drawCards() {
   var box = document.getElementById("cards"); box.innerHTML = "";
   ["Reading", "Math", "Science"].forEach(function (sub) {
@@ -706,7 +727,7 @@ function setSubject(sub) {
   drawQ1(); drawProf(); drawGroups(); drawEscs();
 }
 document.querySelectorAll("[data-sub]").forEach(function (b) { b.addEventListener("click", function () { setSubject(b.getAttribute("data-sub")); }); });
-drawHeader(); drawCards(); fillDims(); fillSelect(); setSubject("Reading"); drawItem();
+drawHeader(); drawDiff(); drawCards(); fillDims(); fillSelect(); setSubject("Reading"); drawItem();
 </script>
 </body>
 </html>
