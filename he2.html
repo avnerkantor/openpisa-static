@@ -385,14 +385,7 @@ function table(rows, head) {
   t.appendChild(tb); return t;
 }
 function quote(box, text) {
-  var q = h("div", "quote"), p = h("p", null, text), b = h("button", "copy", "העתקה"); b.type = "button";
-  b.addEventListener("click", function () {
-    var clean = p.innerText.replace(/[⁦-⁩]/g, "");
-    var done = function (m) { b.textContent = m; setTimeout(function () { b.textContent = "העתקה"; }, 1600); };
-    var sel = function () { var r = document.createRange(); r.selectNodeContents(p); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); done("סומן"); };
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(clean).then(function () { done("הועתק"); }, sel); else sel();
-  });
-  q.appendChild(p); q.appendChild(b); box.appendChild(q);
+  var q = h("div", "quote"); q.appendChild(h("p", null, text)); box.appendChild(q);
 }
 function strip(svg, rows, opt) {
   svg.innerHTML = "";
