@@ -2,14 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://opisa.org/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://opisa.org/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://opisa.org/he.html"/>
   </url>
   <url>
     <loc>https://opisa.org/he.html</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://opisa.org/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://opisa.org/he.html"/>
+  </url>
+  <url>
+    <loc>https://opisa.org/israel-latvia.html</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://opisa.org/previous.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://opisa.org/previous.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://opisa.org/he-previous.html"/>
+  </url>
+  <url>
+    <loc>https://opisa.org/he-previous.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://opisa.org/previous.html"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://opisa.org/he-previous.html"/>
   </url>
 </urlset>
