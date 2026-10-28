@@ -161,7 +161,7 @@ Papa.parse(text.scores, {
 
 var analyzeColumns = ["Country", "Subject", "variable", "r.squared", "p.value", "t.value", "estimate", "std.error", "n"];
 var analyzeSelected = ["Country", "Subject", "variable", "r.squared", "p.value", "n"];
-var analyzeSearch = {Country: "Israel", Subject: "Math", variable: "Class size (CLSIZE)"};
+var analyzeSearch = {Country: isHebrew ? "Israel" : "United States", Subject: "Math", variable: "Class size (CLSIZE)"};
 // columns with a limited set of values get a list of all values, the others a text box
 var analyzeLists = ["Country", "Subject", "variable", "p.value"];
 
