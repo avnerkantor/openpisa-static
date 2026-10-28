@@ -46,52 +46,93 @@ function filterScores(country) {
   });
 }
 
+// plain SVG line chart (the Plotly library froze some browsers after drawing)
+var SVGNS = "http://www.w3.org/2000/svg";
+function svgEl(tag, attrs, parent) {
+  var e = document.createElementNS(SVGNS, tag);
+  Object.keys(attrs).forEach(function (k) { e.setAttribute(k, attrs[k]); });
+  if (parent) parent.appendChild(e);
+  return e;
+}
+
 function scoresPlot(divId, country) {
   var plotData = filterScores(country);
   var groups = {};
   plotData.forEach(function (d) {
     (groups[d.GenderESCS] = groups[d.GenderESCS] || []).push(d);
   });
-
-  var traces = Object.keys(groups).map(function (g) {
-    var rows = groups[g].sort(function (a, b) { return a.Year - b.Year; });
-    return {
-      x: rows.map(function (d) { return d.Year; }),
-      y: rows.map(function (d) { return d.Average; }),
-      mode: rows.length > 1 ? "lines" : "markers",
-      line: {color: groupColours[g], width: 4},
-      marker: {color: groupColours[g], size: 9},
-      hovertemplate: "%{y:.0f}<extra></extra>"
-    };
+  var series = Object.keys(groups).map(function (g) {
+    return {group: g, rows: groups[g].sort(function (a, b) { return a.Year - b.Year; })};
   });
 
-  var levels = expertiseLevels[state.Subject];
+  var div = document.getElementById(divId);
+  div.innerHTML = "";
+  div.style.position = "relative";
+  div.setAttribute("dir", "ltr");
+  var W = div.clientWidth || 400, H = div.clientHeight || 300;
   var narrow = window.innerWidth <= 520;
-  var layout = {
-    margin: narrow ? {t: 10, r: 10, b: 65, l: 40} : {t: 15, r: 20, b: 50, l: 50},
-    showlegend: false,
-    hovermode: "x",
-    font: {family: "Open Sans, sans-serif"},
-    xaxis: {
-      title: {text: text.xTitle, font: {color: "#777777", size: 13}},
-      tickvals: years, range: [2004.5, 2026.5],
-      tickfont: {size: narrow ? 10 : 12}, tickangle: narrow ? -45 : "auto",
-      showgrid: false, zeroline: false, linecolor: "#c7c7c7", fixedrange: true
-    },
-    yaxis: {
-      title: {text: text.yTitle, font: {color: "#777777", size: 13}},
-      tickfont: {size: narrow ? 10 : 12},
-      tickvals: Object.keys(levels).map(function (l) { return levels[l]; }),
-      ticktext: Object.keys(levels),
-      range: expertiseLevelsLimits[state.Subject],
-      gridcolor: "#e0e0e0", zeroline: false, linecolor: "#c7c7c7", fixedrange: true
-    },
-    annotations: traces.length > 0 ? [] : [{
-      text: text.noData, x: 2015, y: 500, showarrow: false, font: {size: 22, color: "#c7c7c7"}
-    }]
-  };
+  var m = narrow ? {t: 10, r: 10, b: 65, l: 40} : {t: 15, r: 20, b: 50, l: 50};
+  var levels = expertiseLevels[state.Subject], lim = expertiseLevelsLimits[state.Subject];
+  var X = function (year) { return m.l + (year - 2004.5) / (2026.5 - 2004.5) * (W - m.l - m.r); };
+  var Y = function (v) { return H - m.b - (v - lim[0]) / (lim[1] - lim[0]) * (H - m.t - m.b); };
+  var tick = narrow ? 10 : 12;
+  var svg = svgEl("svg", {width: W, height: H, style: "font-family: 'Open Sans', sans-serif; display: block"}, div);
 
-  Plotly.react(divId, traces, layout, {displayModeBar: false, responsive: true});
+  // y axis: proficiency levels with grid lines
+  Object.keys(levels).forEach(function (l) {
+    var y = Y(levels[l]);
+    svgEl("line", {x1: m.l, x2: W - m.r, y1: y, y2: y, stroke: "#e0e0e0"}, svg);
+    svgEl("text", {x: m.l - 6, y: y + 4, "text-anchor": "end", "font-size": tick, fill: "#444"}, svg).textContent = l;
+  });
+  // x axis: test years
+  svgEl("line", {x1: m.l, x2: W - m.r, y1: H - m.b, y2: H - m.b, stroke: "#c7c7c7"}, svg);
+  svgEl("line", {x1: m.l, x2: m.l, y1: m.t, y2: H - m.b, stroke: "#c7c7c7"}, svg);
+  years.forEach(function (year) {
+    var x = X(year), y = H - m.b + 16;
+    var t = svgEl("text", {x: x, y: y, "text-anchor": narrow ? "end" : "middle", "font-size": tick, fill: "#444"}, svg);
+    if (narrow) t.setAttribute("transform", "rotate(-45 " + x + " " + (y - 4) + ")");
+    t.textContent = year;
+  });
+  svgEl("text", {x: m.l + (W - m.l - m.r) / 2, y: H - 8, "text-anchor": "middle", "font-size": 13, fill: "#777777"}, svg).textContent = text.xTitle;
+  svgEl("text", {x: 0, y: 0, "text-anchor": "middle", "font-size": 13, fill: "#777777",
+    transform: "translate(12 " + (m.t + (H - m.t - m.b) / 2) + ") rotate(-90)"}, svg).textContent = text.yTitle;
+
+  if (series.length === 0) {
+    svgEl("text", {x: X(2015), y: Y(500), "text-anchor": "middle", "font-size": 22, fill: "#c7c7c7"}, svg).textContent = text.noData;
+    return;
+  }
+  series.forEach(function (s) {
+    var c = groupColours[s.group];
+    if (s.rows.length > 1) {
+      svgEl("polyline", {points: s.rows.map(function (d) { return X(d.Year) + "," + Y(d.Average); }).join(" "),
+        fill: "none", stroke: c, "stroke-width": 4, "stroke-linejoin": "round", "stroke-linecap": "round"}, svg);
+    } else {
+      svgEl("circle", {cx: X(s.rows[0].Year), cy: Y(s.rows[0].Average), r: 4.5, fill: c}, svg);
+    }
+  });
+
+  // hover: the values of every line in the nearest test year
+  var guide = svgEl("line", {y1: m.t, y2: H - m.b, stroke: "#c7c7c7", visibility: "hidden"}, svg);
+  var tip = document.createElement("div");
+  tip.style.cssText = "position:absolute;pointer-events:none;display:none;font-size:15px;line-height:1.3";
+  div.appendChild(tip);
+  svg.addEventListener("mousemove", function (e) {
+    var box = svg.getBoundingClientRect(), px = e.clientX - box.left;
+    var year = years.reduce(function (a, b) { return Math.abs(X(b) - px) < Math.abs(X(a) - px) ? b : a; });
+    var vals = series.map(function (s) {
+      var r = s.rows.filter(function (d) { return d.Year === year; })[0];
+      return r ? {c: groupColours[s.group], v: r.Average} : null;
+    }).filter(Boolean).sort(function (a, b) { return b.v - a.v; });
+    if (vals.length === 0) { guide.setAttribute("visibility", "hidden"); tip.style.display = "none"; return; }
+    guide.setAttribute("x1", X(year)); guide.setAttribute("x2", X(year)); guide.setAttribute("visibility", "visible");
+    tip.innerHTML = vals.map(function (o) {
+      return '<div style="background:' + o.c + ';color:#fff;padding:1px 6px;margin-bottom:2px">' + Math.round(o.v) + "</div>";
+    }).join("");
+    tip.style.display = "block";
+    tip.style.left = (X(year) + (X(year) > W / 2 ? -tip.offsetWidth - 8 : 8)) + "px";
+    tip.style.top = Math.max(m.t, Y(vals[0].v) - 12) + "px";
+  });
+  svg.addEventListener("mouseleave", function () { guide.setAttribute("visibility", "hidden"); tip.style.display = "none"; });
 }
 
 function updatePlots() {
@@ -134,6 +175,13 @@ document.querySelectorAll("#Gender button, #Escs button").forEach(function (btn)
 
 document.querySelectorAll(".countrySelect").forEach(function (sel) {
   sel.addEventListener("change", updatePlots);
+});
+
+// redraw at the new width when the window size changes
+var resizeTimer;
+window.addEventListener("resize", function () {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(function () { if (pisaScores.length) updatePlots(); }, 150);
 });
 
 Papa.parse(text.scores, {

@@ -26,9 +26,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Dataset", "name": "Open PISA", "description": "Compare PISA math, science and reading scores across countries from 2006 to 2025, by gender and socioeconomic status. Free data to download.", "url": "https://opisa.org/previous.html", "inLanguage": "en", "isBasedOn": "https://www.oecd.org/pisa/data/", "temporalCoverage": "2006/2025", "keywords": ["PISA", "OECD", "education", "student assessment", "mathematics", "science", "reading"], "creator": [{"@type": "Person", "honorificPrefix": "Dr.", "name": "Avner Kantor"}, {"@type": "Person", "name": "Sheizaf Rafaeli", "sameAs": "https://en.wikipedia.org/wiki/Sheizaf_Rafaeli"}], "distribution": [{"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "https://opisa.org/data/scores_en.csv"}, {"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "https://opisa.org/data/analyze.csv"}, {"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "https://opisa.org/data/pisa_israel_2025.csv"}]}, {"@context": "https://schema.org", "@type": "WebSite", "name": "Open PISA", "url": "https://opisa.org/", "inLanguage": "en"}]</script>
 <!--/seo-->
-<!-- start the chart data and the chart library early, so the chart does not wait for all scripts -->
+<!-- start the chart data early, so the chart does not wait for all scripts -->
 <link rel="preload" href="data/scores_en.csv" as="fetch" crossorigin>
-<link rel="preconnect" href="https://cdn.plot.ly">
 <!-- Google tag (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BR8NWT72D0"></script>
 <script>
@@ -158,7 +157,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-<script src="https://cdn.plot.ly/plotly-basic-2.35.2.min.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
