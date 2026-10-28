@@ -5,7 +5,7 @@ var isHebrew = document.documentElement.lang === "he";
 var text = isHebrew
   ? {scores: "data/scores.csv", defaults: ["ישראל", "הולנד"], locale: "he",
      xTitle: "שנת מבחן", yTitle: "רמת מיומנות", noData: "לא השתתפו"}
-  : {scores: "data/scores_en.csv", defaults: ["Israel", "Singapore"], locale: "en",
+  : {scores: "data/scores_en.csv", defaults: ["United States", "Canada"], locale: "en",
      xTitle: "Test Year", yTitle: "Proficiency Level", noData: "Did not participate"};
 
 var years = [2006, 2009, 2012, 2015, 2018, 2022, 2025];
