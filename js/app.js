@@ -152,6 +152,8 @@ Papa.parse(text.scores, {
       countries.forEach(function (c) { sel.add(new Option(c, c, false, c === s[1])); });
     });
     updatePlots();
+    // the analysis table (2.5MB) loads only after the charts are drawn, so it does not delay them
+    setTimeout(loadAnalyze, 0);
   }
 });
 
@@ -189,6 +191,7 @@ function sortValues(name, values) {
   return values.sort(function (a, b) { return a.localeCompare(b, "en"); });
 }
 
+function loadAnalyze() {
 Papa.parse("data/analyze.csv", {
   download: true, header: false, skipEmptyLines: true,
   complete: function (results) {
@@ -245,3 +248,4 @@ Papa.parse("data/analyze.csv", {
     });
   }
 });
+}
