@@ -256,6 +256,7 @@ th:first-child,td:first-child{text-align:right}
         <svg class="chart" id="figC" role="img" aria-labelledby="figC-title"></svg>
         <figcaption>השינוי בין 2022 ל־2025 לפי שליש של מדד הרקע המשפחתי. הקווים הם מרווחים של 95%. תלמידים ללא נתוני רקע שובצו לפי הרקע החזוי שלהם.</figcaption>
       </figure>
+      <div class="callout"><b>זהירות</b><p>מדד הרקע המשפחתי של 2025 נבנה משאלות שונות מאלה של 2022. השאלות על סוגי הספרים בבית הוחלפו בשאלות על תנאי מגורים, והשכלת ההורים נשאלה אחרת. לכן שלישי הרקע של 2022 ושל 2025 אינם אותן קבוצות. מחקר שבנה מדד אחיד לשני המחזורים מצא שבממוצע מדינות ה־OECD הירידה החדה של התלמידים המבוססים כמעט נעלמת (<a href="https://www.esade.edu/ecpol/en/publications/explaining-the-learning-decline-in-pisa-2025-by-socioeconomic-quartiles-through-methodological-changes/" target="_blank" rel="noopener">Cobreros ואחרים, 2026</a>). עדיין לא בדקנו זאת לישראל.</p></div>
     </div>
 
     <div class="sub-block">
@@ -495,7 +496,7 @@ function drawDiff() {
     iso(RAMA_LOW.Science) + ", קריאה " + iso(RAMA_LOW.Reading) + ", מתמטיקה " + iso(RAMA_LOW.Math) + "). החישוב מבוסס על מדד הרקע של פיזה, שחסר ל־" + pc(c25.noescs) + " מהנבחנים ב־2025 (" + pc(c22.noescs) +
     " ב־2022), ואלה תלמידים עם ציונים נמוכים בהרבה. כשכוללים את כל התלמידים, גם השליש התחתון ירד באופן מובהק: " +
     subs.map(function (s) { var o = ch("escs_all", "Lowest third", s); return SUBIN[s] + " " + fell(o) + " (" + pm(o.se) + ")"; }).join(", ") +
-    ". כלומר, כולם ירדו, והחזקים ירדו יותר.";
+    ". כלומר, גם התלמידים מרקע נמוך ירדו. האם המבוססים ירדו יותר תלוי במדד הרקע, שהשתנה ב־2025 (ראו הסתייגות למטה).";
   /* gender: change in the girls-minus-boys gap, with the gap's standard error estimated directly (replicate weights) */
   var g = subs.map(function (s) { var r = row(s, CNT); return { s: s, d: r.g - r.g22, se: Math.sqrt(r.gse * r.gse + r.gse22 * r.gse22) }; });
   var yes = g.filter(function (o) { return sig(o.d, o.se); }), no = g.filter(function (o) { return !sig(o.d, o.se); });
